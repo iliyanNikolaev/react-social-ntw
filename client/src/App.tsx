@@ -1,12 +1,16 @@
-import { Navbar } from "./components/Navbar"
+import { Navbar } from "./components/Navbar";
+import { Route, Routes } from 'react-router-dom';
+import { Home } from "./pages/Home";
 
 function App() {
 
   return (
     <>
       <Navbar/>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga omnis consequatur provident sapiente ex magni nihil perspiciatis doloremque maiores, aut veniam voluptates. Culpa aperiam fugiat tempora ducimus accusamus ipsum maiores?
+      
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
     </>
   )
 }
