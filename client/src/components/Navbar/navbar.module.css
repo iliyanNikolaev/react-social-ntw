@@ -42,7 +42,8 @@
 
 .homeIcon,
 .profileIcon,
-.logoIcon {
+.logoIcon,
+.usersIcon {
     color: rgba(0, 100, 0, 0.7);
     font-size: x-large;
 }

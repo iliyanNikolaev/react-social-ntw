@@ -14,6 +14,8 @@
     height: 10rem;
     border-radius: 1rem;
     object-fit: cover;
+    border-radius: 1rem;
+    border: 3px solid rgba(0, 100, 0, 0.7);
 }
 
 .avatar {
@@ -39,23 +41,6 @@
     font-size: x-large;
 }
 
-/* Custom (phones, 480px and down) */
-@media only screen and (max-width: 480px) {
-    .fullName {
-        font-size: medium;
-        padding: 0.3rem;
-        left: 8rem;
-        bottom: 0.5rem;
-    }
-
-    .avatar {
-        width: 7rem;
-        height: 7rem;
-        left: 0.5rem;
-        bottom: -1rem;
-    }
-}
-
 .controls {
     margin-top: 1rem;
     display: flex;
@@ -77,35 +62,19 @@
     margin-bottom: 1rem;
 }
 
-/* Custom (phones, 480px and down) */
-@media only screen and (max-width: 480px) {
-    .btn {
-        padding: 0.3rem;
-    }
-}
-
-.lower{
-    margin-top: 1rem;
-}
-
-.posts{
+.posts {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 1rem;
 }
 
-.controlsPagination{
+.controlsPagination {
     display: flex;
     gap: 4rem;
     justify-content: center;
     margin-top: 0.5rem;
 }
-
-/* .paginationBtn{
-    display: flex;
-    align-items: center;
-} */
 
 .btnPagination {
     border: none;
@@ -119,3 +88,54 @@
     align-items: center;
     gap: 0.2rem;
 }
+
+/* Custom (galaxy fold and etc, 322px and down) */
+@media only screen and (max-width: 322px) {
+    .fullName {
+        font-size: xx-small;
+        left: 6rem;
+        bottom: 0.5rem;
+    }
+
+    .avatar {
+        width: 4rem;
+        height: 4rem;
+        left: 0.1rem;
+        bottom: -1rem;
+    }
+
+    .lower {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Custom (phones, 480px and down) */
+@media only screen and (max-width: 480px) {
+    .fullName {
+        font-size: medium;
+        padding: 0.3rem;
+        left: 8rem;
+        bottom: 0.5rem;
+    }
+
+    .avatar {
+        width: 7rem;
+        height: 7rem;
+        left: 0.5rem;
+        bottom: -1rem;
+    }
+
+    .controls {
+        margin-top: 1.5rem;
+    }
+
+    .btn {
+        padding: 0.3rem;
+    }
+}/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .cover{
+        height: 18rem;
+    }
+}
+
