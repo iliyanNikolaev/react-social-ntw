@@ -46,10 +46,17 @@
     font-size: x-large;
 }
 
+/* Custom (phones, 374px and down) */
+@media only screen and (max-width: 374px) {
+    .container {
+        width: 85%;
+    }
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .container {
-        width: 95%;
+        width: 90%;
     }
 }
 
