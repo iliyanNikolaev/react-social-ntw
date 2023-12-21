@@ -8,7 +8,7 @@ export const CreatePost = () => {
         Add new post
       </p>
 
-      <textarea className={styles.text} rows={2} cols={100}></textarea>
+      <textarea className={styles.text} rows={2}></textarea>
 
       <label htmlFor='file' className={styles.addFile}>
         <div className={styles.addFileBtn}>
