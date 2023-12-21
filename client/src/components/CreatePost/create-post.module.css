@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.5rem;
+    width: 95%;
+    background-color: #f0f2f5;
+    border-bottom: 1px solid rgba(0, 100, 0, 0.7);
+}
+
+.heading{
+    color: rgba(0, 100, 0, 0.7);
+    font-weight: bolder;
+}
+
+.addFile{
+    cursor: pointer;
+}
+
+.addHidden{
+    display: none;
+}
+
+.addVisible{
+    color: rgba(0, 100, 0, 0.7);
+    font-size: x-large;
+}
+
+.addFileBtn{
+    display: flex;
+    align-items: center;
+    font-size: x-small;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.35rem;
+    color: white;
+    background-color: rgba(0, 100, 0, 0.7);
+    padding: 0.4rem;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.text{
+    outline: none;
+    resize: none;
+    border-color: rgba(0, 100, 0, 0.7);
+    background-color: transparent;
+}
+
