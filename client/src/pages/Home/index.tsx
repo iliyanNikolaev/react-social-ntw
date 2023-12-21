@@ -1,4 +1,5 @@
 import { CreatePost } from '../../components/CreatePost';
+import { PostItem } from '../../components/PostItem';
 import styles from './home.module.css';
 
 export const Home = () => {
@@ -6,19 +7,13 @@ export const Home = () => {
     <div className={styles.wrapper}>
         <div className={styles.container}>
               <CreatePost />
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
-             <div className={styles.temp}>post</div>
+             
+             <PostItem />
+             <PostItem />
+             <PostItem />
+             <PostItem />
+             <PostItem />
+             <PostItem />
         </div>
     </div>
   )

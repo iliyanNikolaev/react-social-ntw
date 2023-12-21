@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 100, 0, 0.7);
+    padding: 0.5rem;
+    width: 95%;
+}
+
+.upper{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.author{
+    display: flex;
+    flex-direction: column;
+}
+
+.fullName{
+    font-weight: bold;
+}
+
+.time{
+    font-style: italic;
+}
+
+.avatar{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.postImg{
+    width: 100%;
+}
+
+.lower{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.controls{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.details{
+    display: flex;
+    justify-content: space-between;
+}
