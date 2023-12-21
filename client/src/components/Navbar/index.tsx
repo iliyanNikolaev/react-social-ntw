@@ -5,6 +5,8 @@ import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { IoShareSocial } from "react-icons/io5";
 
+import { Link } from 'react-router-dom';
+
 export const Navbar = () => {
     return (
         <div className={styles.wrapper}>
@@ -16,8 +18,8 @@ export const Navbar = () => {
                     </span>
                 </div>
                 <div className={styles.icons}>
-                    <FaHome className={styles.homeIcon} />
-                    <CgProfile className={styles.profileIcon} />
+                    <Link to='/'><FaHome className={styles.homeIcon} /></Link>
+                    <Link to='/profile/1'><CgProfile className={styles.profileIcon} /></Link>
                 </div>
             </div>
         </div>

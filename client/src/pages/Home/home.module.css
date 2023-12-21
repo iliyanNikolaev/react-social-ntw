@@ -6,3 +6,21 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+.controls{
+    display: flex;
+    gap: 4rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.35rem;
+    color: white;
+    background-color: rgba(0, 100, 0, 0.7);
+    padding: 0.4rem;
+    font-size: small;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}

@@ -1,0 +1,124 @@
+@import url("../pageLayout.css");
+/* 
+.container{
+} */
+
+
+.upper {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cover {
+    width: 100%;
+    height: 10rem;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.avatar {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    border: 2px solid white;
+    bottom: -2rem;
+    left: 2rem;
+}
+
+.fullName {
+    position: absolute;
+    bottom: 0.4rem;
+    left: 11rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-weight: bolder;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    font-size: x-large;
+}
+
+/* Custom (phones, 480px and down) */
+@media only screen and (max-width: 480px) {
+    .fullName {
+        font-size: medium;
+        padding: 0.3rem;
+        left: 8rem;
+        bottom: 0.5rem;
+    }
+
+    .avatar {
+        width: 7rem;
+        height: 7rem;
+        left: 0.5rem;
+        bottom: -1rem;
+    }
+}
+
+.controls {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(0, 100, 0, 0.7);
+    border-radius: 0.1rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.35rem;
+    color: white;
+    background-color: rgba(0, 100, 0, 0.7);
+    padding: 0.4rem;
+    font-size: medium;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+/* Custom (phones, 480px and down) */
+@media only screen and (max-width: 480px) {
+    .btn {
+        padding: 0.3rem;
+    }
+}
+
+.lower{
+    margin-top: 1rem;
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controlsPagination{
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+/* .paginationBtn{
+    display: flex;
+    align-items: center;
+} */
+
+.btnPagination {
+    border: none;
+    border-radius: 0.35rem;
+    color: white;
+    background-color: rgba(0, 100, 0, 0.7);
+    padding: 0.4rem;
+    font-size: small;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
