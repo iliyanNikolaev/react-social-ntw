@@ -41,6 +41,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 0.5rem;
+    align-items: center;
 }
 
 .controls{
@@ -59,3 +60,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .postImg{
+        width: 70%;
+    }
+}
+
