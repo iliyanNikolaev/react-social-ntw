@@ -1,3 +1,6 @@
+import { BiSolidLike } from "react-icons/bi";
+import { FaCommentAlt } from "react-icons/fa";
+
 import { Link } from 'react-router-dom';
 import { IPost } from '../../interfaces';
 import styles from './post-item.module.css';
@@ -20,17 +23,17 @@ export const PostItem = ({ post } : { post: IPost | undefined }) => {
             <div className={styles.controls}>
 
                 <div className={styles.actions}>
-                    <button>
-                        like
-                    </button>
-                    <button>
-                        comment
-                    </button>
+                    <span className={styles.likeBtn}>
+                    <BiSolidLike className={styles.likeIcon} /> like
+                    </span>
+                    <span className={styles.commentBtn}>
+                    <FaCommentAlt className={styles.commentIcon} /> comment
+                    </span>
                 </div>
 
                 <div className={styles.details}>
-                    <span>{post?.likes.length} likes</span>
-                    <span>{post?.comments.length} comments</span>
+                    <span className={styles.viewLikesBtn}>{post?.likes.length} likes</span>
+                    <span className={styles.viewCommentsBtn}>{post?.comments.length} comments</span>
                 </div>
             </div>
         </div>
