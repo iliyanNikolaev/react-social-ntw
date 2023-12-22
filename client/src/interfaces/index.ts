@@ -22,18 +22,13 @@ export interface IPost {
     owner: IUserLean,
     textContent?: string,
     img?: string,
-    likes: ILike[],
+    likes: IUserLean[],
     comments: IComment[];
-}
-
-export interface ILike {
-    id: string,
-    owner: IUser
 }
 
 export interface IComment {
     id: string,
     owner: IUser,
     textContent: string,
-    likes: ILike[]
+    likes: IUserLean[]
 }

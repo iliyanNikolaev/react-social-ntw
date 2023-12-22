@@ -31,7 +31,7 @@
 
 .logo {
     color: rgba(0, 100, 0, 0.7);
-    font-size: large;
+    font-size: x-large;
     font-weight: bold;
 }
 
@@ -45,7 +45,14 @@
 .logoIcon,
 .usersIcon {
     color: rgba(0, 100, 0, 0.7);
-    font-size: x-large;
+    font-size: xx-large;
+}
+
+.homeIcon:hover,
+.profileIcon:hover,
+.logoIcon:hover,
+.usersIcon:hover {
+    scale: 1.1;
 }
 
 /* Custom (phones, 374px and down) */
@@ -59,6 +66,16 @@
 @media only screen and (max-width: 600px) {
     .container {
         width: 90%;
+    }
+    .logo {
+        font-size: large;
+    }
+
+    .homeIcon,
+    .profileIcon,
+    .logoIcon,
+    .usersIcon {
+        font-size: x-large;
     }
 }
 
@@ -74,6 +91,7 @@
     .container {
         width: 89%;
     }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

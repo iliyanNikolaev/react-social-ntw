@@ -24,6 +24,10 @@
     color: darkblue;    
 }
 
+.fullName:hover{
+    scale: 1.05;
+}
+
 .time{
     font-style: italic;
 }
@@ -69,7 +73,12 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.likeBtn:hover,
+.commentBtn:hover{
     cursor: pointer;
+    scale: 0.9;
 }
 
 .likeIcon{
@@ -85,8 +94,8 @@
     justify-content: space-between;
 }
 
-.viewLikesBtn,
-.viewCommentsBtn{
+.viewLikesBtn:hover,
+.viewCommentsBtn:hover{
     cursor: pointer;
     font-weight: bold;
 }

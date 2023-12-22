@@ -16,6 +16,11 @@
     color: rgba(205, 28, 28, 0.946)
 }
 
+.closeBtn:hover{
+    cursor: pointer;
+    scale: 1.1;
+}
+
 .contentWrapper{
     display: flex;
     align-items: center;
