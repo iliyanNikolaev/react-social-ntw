@@ -1,19 +1,21 @@
+import { Link } from 'react-router-dom';
+import { IPost } from '../../interfaces';
 import styles from './post-item.module.css';
 
-export const PostItem = () => {
+export const PostItem = ({ post } : { post: IPost | undefined }) => {
     return (
         <div className={styles.container}>
 
             <div className={styles.upper}>
-                <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/121745595?v=4" alt="avatar" />
+                <img className={styles.avatar} src={post?.owner.profilePic} alt="avatar" />
                 <div className={styles.author}>
-                    <span className={styles.fullName}>Iliyan Nikolaev</span>
+                    <Link to={`/profile/${post?.owner.id}`} className={styles.fullName}>{post?.owner.firstName} {post?.owner.lastName}</Link>
                     <span className={styles.time}>2 hours ago</span>
                 </div>
             </div>
             <div className={styles.lower}>
-                <p className={styles.postContent}>React is powerfull library for building UI</p>
-                <img className={styles.postImg} src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="post-image" />
+                <p className={styles.postContent}>{post?.textContent}</p>
+                <img className={styles.postImg} src={post?.img} alt="post-image" />
             </div>
             <div className={styles.controls}>
 
@@ -27,8 +29,8 @@ export const PostItem = () => {
                 </div>
 
                 <div className={styles.details}>
-                    <span>12 likes</span>
-                    <span>6 comments</span>
+                    <span>{post?.likes.length} likes</span>
+                    <span>{post?.comments.length} comments</span>
                 </div>
             </div>
         </div>

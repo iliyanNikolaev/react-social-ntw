@@ -10,9 +10,16 @@ export interface IUser {
     posts: IPost[]
 }
 
+export interface IOwner {
+    id: string,
+    firstName: string,
+    lastName: string,
+    profilePic: string
+}
+
 export interface IPost {
     id: string,
-    owner: IUser,
+    owner: IOwner,
     textContent?: string,
     img?: string,
     likes: ILike[],

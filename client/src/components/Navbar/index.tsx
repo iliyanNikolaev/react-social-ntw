@@ -21,7 +21,7 @@ export const Navbar = () => {
                 <div className={styles.icons}>
                     <Link to='/'><FaHome className={styles.homeIcon} /></Link>
                     <Link to='/users'><FaUsers className={styles.usersIcon} /></Link>
-                    <Link to='/profile/1'><CgProfile className={styles.profileIcon} /></Link>
+                    <Link to='/profile/4'><CgProfile className={styles.profileIcon} /></Link>
                 </div>
             </div>
         </div>
