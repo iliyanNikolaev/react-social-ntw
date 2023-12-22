@@ -91,6 +91,28 @@
     font-weight: bold;
 }
 
+/* Custom (phones, 345px and down) */
+@media only screen and (max-width: 252px) {
+    .actions{
+        gap: 3.5rem;
+    }
+    .postImg{
+        width: 50%;
+        height: 5rem;
+        border: none;
+    }
+}
+
+/* Custom (phones, 345px and down) */
+@media only screen and (max-width: 345px) {
+    .actions{
+        gap: 5rem;
+    }
+    .postImg{
+        width: 80%;
+        height: 9rem;
+    }
+}
 
 /* Custom (phones, 480px and down) */
 @media only screen and (max-width: 480px) {
