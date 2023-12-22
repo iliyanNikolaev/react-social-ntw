@@ -3,15 +3,14 @@ import styles from './profile.module.css';
 
 //icons
 import { SlUserFollow } from "react-icons/sl";
+
 import { useEffect, useState } from 'react';
-
-
 import { useParams } from 'react-router-dom';
-
 import { IPost, IUser } from '../../interfaces';
 import { getUser, getPosts } from '../../data/service';
 import { PostList } from '../../components/PostList';
 import { toggleModal } from '../../components/Modal';
+import { ConnectionsModal } from '../../components/Modals/ConnectionsModal';
 
 export const Profile = () => {
   const { id } = useParams();
@@ -27,6 +26,10 @@ export const Profile = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
+        
+        {/* modals */}
+        <ConnectionsModal connections={currentUser?.connections}/>
+
         {!currentUser && <p>Loading...</p>}
 
         {currentUser && <>
@@ -40,8 +43,8 @@ export const Profile = () => {
           <div className={styles.lower}>
             <div className={styles.controls}>
               <span
-              onClick={() => toggleModal('connections-modal')}
-              className={styles.connectionsBtn}
+                onClick={() => toggleModal('connections-modal')}
+                className={styles.connectionsBtn}
               >
                 {currentUser.connections.length} connections
               </span>

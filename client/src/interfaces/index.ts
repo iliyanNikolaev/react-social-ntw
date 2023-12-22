@@ -6,11 +6,11 @@ export interface IUser {
     lastName: string,
     coverPic?: string,
     profilePic?: string,
-    connections: IUser[],
+    connections: IUserLean[],
     posts: IPost[]
 }
 
-export interface IOwner {
+export interface IUserLean {
     id: string,
     firstName: string,
     lastName: string,
@@ -19,7 +19,7 @@ export interface IOwner {
 
 export interface IPost {
     id: string,
-    owner: IOwner,
+    owner: IUserLean,
     textContent?: string,
     img?: string,
     likes: ILike[],

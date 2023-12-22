@@ -1,13 +1,31 @@
 import styles from './connentions-modal.module.css';
 import { Modal } from "../../Modal"
+import { IUserLean } from '../../../interfaces';
 
-export const ConnectionsModal = () => {
+type ConnectionsModalPropsType = { connections: IUserLean[] | undefined }
+
+export const ConnectionsModal = (
+  { connections }:
+    ConnectionsModalPropsType
+) => {
   return (
     <Modal label="connections-modal">
       <div className={styles.container}>
-        <h1>this is the connections modal</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores debitis asperiores commodi iste temporibus. Unde totam error illum inventore dicta?</p>
+        <h3>connections</h3>
+        <div className={styles.content}>
+          {connections?.length == 0 && <p>No connections yet..</p>}
+          {connections?.map(x => <Connection key={x.id} user={x} />)}
+        </div>
       </div>
     </Modal>
   )
 }
+
+const Connection = (
+  { user }:
+    { user: IUserLean }
+) => <div className={styles.connection}>
+    <img className={styles.avatar}
+      src={user.profilePic} alt="avatar" />
+    <span className={styles.fullName}>{user.firstName} {user.lastName}</span>
+  </div>

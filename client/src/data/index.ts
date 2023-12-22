@@ -9,7 +9,26 @@ export const Users: IUser[] = [
         lastName: "Musk",
         coverPic: "https://image.cnbcfm.com/api/v1/image/101717965-494553365.jpg?v=1583511833",
         profilePic: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1229892983-square.jpg",
-        connections: [],
+        connections: [
+            {
+                id: "2",
+                firstName: "Mark",
+                lastName: "Zuckerberg",
+                profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
+            },
+            {
+                id: "3",
+                firstName: "Brendan",
+                lastName: "Eich",
+                profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
+            },
+            {
+                id: "4",
+                firstName: "Iliyan",
+                lastName: "Nikolaev",
+                profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
+            }
+        ],
         posts: []
     },
     {
@@ -20,7 +39,26 @@ export const Users: IUser[] = [
         lastName: "Zuckerberg",
         coverPic: "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2020/12/mark-zuckerberg-facebook-1210201.jpg",
         profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
-        connections: [],
+        connections: [
+            {
+                id: "3",
+                firstName: "Brendan",
+                lastName: "Eich",
+                profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
+            },
+            {
+                id: "4",
+                firstName: "Iliyan",
+                lastName: "Nikolaev",
+                profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
+            },
+            {
+                id: "1",
+                firstName: "Elon",
+                lastName: "Musk",
+                profilePic: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1229892983-square.jpg",
+            },
+        ],
         posts: []
     },
     {
@@ -58,8 +96,10 @@ export const Posts: IPost[] = [
     },
     {
         id: "435342",
-        owner: { id: "2", firstName: "Mark", lastName: "Zuckerberg", 
-        profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*" },
+        owner: {
+            id: "2", firstName: "Mark", lastName: "Zuckerberg",
+            profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*"
+        },
         textContent: "So many interesting people are following me. I think I'll follow some of you guys as well.",
         img: "https://noyb.eu/sites/default/files/styles/media_xlarge/public/2023-10/basic_meta_6.png?itok=26tjbf3Z",
         likes: [],
