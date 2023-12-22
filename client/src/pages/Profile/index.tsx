@@ -11,6 +11,8 @@ import { getUser, getPosts } from '../../data/service';
 import { PostList } from '../../components/PostList';
 import { toggleModal } from '../../components/Modal';
 import { ConnectionsModal } from '../../components/Modals/ConnectionsModal';
+import { ScrollToTop } from '../../components/ScrollToTop';
+
 
 export const Profile = () => {
   const { id } = useParams();
@@ -25,10 +27,11 @@ export const Profile = () => {
 
   return (
     <div className={styles.wrapper}>
+      <ScrollToTop />
       <div className={styles.container}>
-        
+
         {/* modals */}
-        <ConnectionsModal connections={currentUser?.connections}/>
+        <ConnectionsModal connections={currentUser?.connections} />
 
         {!currentUser && <p>Loading...</p>}
 
