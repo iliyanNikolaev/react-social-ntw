@@ -51,6 +51,11 @@
     border-radius: 0.1rem;
 }
 
+.connectionsBtn:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .btn {
     border: none;
     border-radius: 0.35rem;

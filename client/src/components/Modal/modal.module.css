@@ -1,0 +1,25 @@
+.container::backdrop{
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.container {
+    padding: 9px 12px;
+    border: none;
+    outline: none;
+    background: #97c097;
+    border-radius: 2rem;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.37);
+}
+
+.closeBtn{
+    font-size: 2rem;
+    color: rgba(205, 28, 28, 0.946)
+}
+
+.contentWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+

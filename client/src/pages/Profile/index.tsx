@@ -11,6 +11,7 @@ import { useParams } from 'react-router-dom';
 import { IPost, IUser } from '../../interfaces';
 import { getUser, getPosts } from '../../data/service';
 import { PostList } from '../../components/PostList';
+import { toggleModal } from '../../components/Modal';
 
 export const Profile = () => {
   const { id } = useParams();
@@ -38,7 +39,12 @@ export const Profile = () => {
 
           <div className={styles.lower}>
             <div className={styles.controls}>
-              <span>{currentUser.connections.length} connections</span>
+              <span
+              onClick={() => toggleModal('connections-modal')}
+              className={styles.connectionsBtn}
+              >
+                {currentUser.connections.length} connections
+              </span>
               <button className={styles.btn}><SlUserFollow /> connect</button>
             </div>
           </div>
@@ -53,6 +59,7 @@ export const Profile = () => {
           </div>
         </>}
       </div>
+
     </div>
   )
 }
