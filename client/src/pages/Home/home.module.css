@@ -1,13 +1,13 @@
 @import url("../pageLayout.css");
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 }
 
-.controls{
+.controls {
     display: flex;
     gap: 4rem;
 }
@@ -23,4 +23,25 @@
     display: flex;
     align-items: center;
     gap: 0.2rem;
+}
+
+.loginText {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    color: rgba(0, 100, 0, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.loginText:hover{
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.loginIcon {
+    color: rgba(0, 100, 0, 0.7);
+    font-size: xx-large;
 }

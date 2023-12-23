@@ -53,7 +53,7 @@ export const AuthContextProvider = ({ children }: { children: ReactElement | Rea
         loginHandler,
         registerHandler,
         logoutHandler,
-        userData,
+        userData
     }
 
     return (
