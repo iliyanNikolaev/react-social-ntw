@@ -94,30 +94,54 @@
     gap: 0.2rem;
 }
 
-/* Custom (galaxy fold and etc, 322px and down) */
-@media only screen and (max-width: 322px) {
+
+@media only screen and (min-width: 1200px) {
+    .cover{
+        height: 18rem;
+    }
+
     .fullName {
-        font-size: xx-small;
-        left: 6rem;
-        bottom: 0.5rem;
+        font-size: xx-large;
+        padding: 0.3rem;
+        left: 16rem;
+        bottom: 0.7rem;
     }
 
     .avatar {
-        width: 4rem;
-        height: 4rem;
-        left: 0.1rem;
-        bottom: -1rem;
-    }
-
-    .lower {
-        margin-top: 1.5rem;
+        width: 14rem;
+        height: 14rem;
+        left: 1rem;
+        bottom: -3rem;
     }
 }
 
-/* Custom (phones, 480px and down) */
+/* phones */
+@media only screen and (max-width: 600px) {
+    .fullName {
+        font-size: large;
+        left: 9rem;
+        bottom: 0.8rem;
+    }
+
+    .avatar {
+        width: 8rem;
+        height: 8rem;
+        left: 0.8rem;
+        bottom: -1rem;
+    }
+
+    .controls {
+        margin-top: 1.5rem;
+    }
+
+    .btn {
+        padding: 0.3rem;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .fullName {
-        font-size: medium;
+        font-size: large;
         padding: 0.3rem;
         left: 8rem;
         bottom: 0.5rem;
@@ -137,10 +161,28 @@
     .btn {
         padding: 0.3rem;
     }
-}/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    .cover{
-        height: 18rem;
+}
+
+@media only screen and (max-width: 322px) {
+    .fullName {
+        font-size: small;
+        left: 6.5rem;
+        bottom: 0.5rem;
+    }
+
+    .avatar {
+        width: 6rem;
+        height: 6rem;
+        left: 0.4rem;
+        bottom: -1rem;
+    }
+
+    .lower {
+        margin-top: 1.5rem;
     }
 }
+
+
+
+
 

@@ -100,40 +100,49 @@
     font-weight: bold;
 }
 
-/* Custom (phones, 345px and down) */
-@media only screen and (max-width: 252px) {
-    .actions{
-        gap: 3.5rem;
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 100%;
     }
     .postImg{
-        width: 50%;
-        height: 5rem;
-        border: none;
+        height: 24rem;
+        width: 100%;
     }
 }
 
-/* Custom (phones, 345px and down) */
-@media only screen and (max-width: 345px) {
-    .actions{
-        gap: 5rem;
+@media only screen and (min-width: 800px) {
+    .container {
+        width: 98%;
     }
     .postImg{
-        width: 80%;
-        height: 9rem;
+        height: 22rem;
+        width: 95%;
     }
 }
 
-/* Custom (phones, 480px and down) */
+
+/* phones */
+@media only screen and (max-width: 600px) {
+    .postImg{
+        height: 16rem;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .postImg{
         width: 100%;
-        height: 12rem;
+        height: 14rem;
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 360px) {
     .postImg{
-        height: 22rem;
-        width: 100%;
+        width: 95%;
+        height: 11rem;
     }
 }
+
+
+
+    
+
