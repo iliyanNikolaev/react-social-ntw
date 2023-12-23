@@ -7,7 +7,7 @@ import { IPost } from "../../interfaces";
 //hooks
 import { useEffect, useState } from "react";
 //services
-import { getPosts } from "../../data/service";
+import { getPosts } from "../../data/api";
 //components
 import { CreatePost } from '../../components/CreatePost';
 import { PostList } from "../../components/PostList";

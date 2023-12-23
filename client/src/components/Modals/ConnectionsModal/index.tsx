@@ -31,7 +31,7 @@ const ConnectionList = (
 	{ connections }: ConnectionListProp
 ) => {
 	return <>
-		<h3>connections</h3>
+		<h3>followers</h3>
 		<div className={styles.content}>
 			{connections?.length == 0 && <p>No connections yet..</p>}
 			{connections?.map(x => <Connection key={x.id} user={x} />)}

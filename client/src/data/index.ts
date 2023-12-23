@@ -3,7 +3,6 @@ import { IPost, IUser } from "../interfaces";
 export const Users: IUser[] = [
     {
         id: "1",
-        username: "elonSpaseX",
         password: "123",
         firstName: "Elon",
         lastName: "Musk",
@@ -82,7 +81,6 @@ export const Users: IUser[] = [
     },
     {
         id: "2",
-        username: "markoFace",
         password: "123",
         firstName: "Mark",
         lastName: "Zuckerberg",
@@ -124,7 +122,6 @@ export const Users: IUser[] = [
     },
     {
         id: "3",
-        username: "brendoSkripta",
         password: "123",
         firstName: "Brendan",
         lastName: "Eich",
@@ -144,13 +141,19 @@ export const Users: IUser[] = [
     },
     {
         id: "4",
-        username: "ilich227",
         password: "123",
         firstName: "Iliyan",
         lastName: "Nikolaev",
         coverPic: "https://media.wired.com/photos/5ca648a330f00e47fd82ae77/master/pass/Culture_Matrix_Code_corridor.jpg",
         profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
-        connections: [],
+        connections: [
+            {
+                id: "1",
+                firstName: "Elon",
+                lastName: "Musk",
+                profilePic: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1229892983-square.jpg",
+            },
+        ],
         posts: []
     },
 ]
@@ -223,6 +226,52 @@ export const Posts: IPost[] = [
         likes: [],
         comments: []
     },
-
+    {
+        id: "fdhgf664",
+        owner: {
+            id: "4",
+            firstName: "Iliyan",
+            lastName: "Nikolaev",
+            profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
+        },
+        textContent: "I'm doing this social media for a portfolio, looks good for now? What do you think?",
+        img: "https://99designs-blog.imgix.net/blog/wp-content/uploads/2021/12/99871876.jpg?auto=format&q=60&w=1280&h=1280&fit=crop&crop=faces",
+        likes: [
+            {
+                id: "2",
+                firstName: "Mark",
+                lastName: "Zuckerberg",
+                profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
+            },
+            {
+                id: "3",
+                firstName: "Brendan",
+                lastName: "Eich",
+                profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
+            },
+        ],
+        comments: [
+            {
+                id: '3234546567',
+                owner: {
+                    id: "2",
+                    firstName: "Mark",
+                    lastName: "Zuckerberg",
+                    profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
+                },
+                textContent: "Hustle every day I started like this"
+            },
+            {
+                id: '3234546fds',
+                owner: {
+                    id: "1",
+                    firstName: "Elon",
+                    lastName: "Musk",
+                    profilePic: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1229892983-square.jpg",
+                },
+                textContent: "Wow looks awesome!!"
+            },
+        ]
+    },
 ]
 

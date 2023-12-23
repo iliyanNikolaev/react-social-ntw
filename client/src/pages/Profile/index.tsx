@@ -8,7 +8,7 @@ import { IPost, IUser } from '../../interfaces';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 //services
-import { getUser } from '../../data/service';
+import { getUser } from '../../data/api';
 //components
 import { PostList } from '../../components/PostList';
 import { ConnectionsModal, toggleConnectionsModal } from '../../components/Modals/ConnectionsModal';
@@ -77,9 +77,9 @@ const ProfileLower = (
                 onClick={toggleConnectionsModal}
                 className={styles.connectionsBtn}
             >
-                {currentUser.connections.length} connections
+                {currentUser.connections.length} followers
             </span>
-            <button className={styles.btn}><SlUserFollow /> connect</button>
+            <button className={styles.btn}><SlUserFollow /> follow</button>
         </div>
     </div>
 }
