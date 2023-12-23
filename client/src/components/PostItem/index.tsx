@@ -18,14 +18,17 @@ export const PostItem = (
     return (
         //init modals on the page
         <div className={styles.container}>
-            <LikesModal likes={post?.likes} />
-            <CommentsModal comments={post?.comments} />
+            {post && <>
+                <LikesModal id={post.id} likes={post.likes} />
 
-            <PostUpper post={post} />
+                <CommentsModal id={post.id} comments={post?.comments} />
 
-            <PostLower post={post} />
+                <PostUpper post={post} />
 
-            <PostControls post={post} />
+                <PostLower post={post} />
+
+                <PostControls post={post} />
+            </>}
         </div>
     )
 }
@@ -66,8 +69,10 @@ const PostControls = (
         </div>
 
         <div className={styles.details}>
-            <span onClick={toggleLikesModal} className={styles.viewLikesBtn}>{post?.likes.length} likes</span>
-            <span onClick={toggleCommentsModal} className={styles.viewCommentsBtn}>{post?.comments.length} comments</span>
+            {post && <>
+                <span onClick={() => toggleLikesModal(post.id)} className={styles.viewLikesBtn}>{post?.likes.length} likes</span>
+                <span onClick={() => toggleCommentsModal(post.id)} className={styles.viewCommentsBtn}>{post?.comments.length} comments</span>
+            </>}
         </div>
     </div>
 }

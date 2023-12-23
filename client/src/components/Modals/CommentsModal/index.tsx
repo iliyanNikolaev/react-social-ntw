@@ -6,17 +6,17 @@ import { IComment } from '../../../interfaces';
 import { Modal, toggleModal } from "../../Modal"
 
 
-export const toggleCommentsModal = () => {
-	toggleModal('comments-modal');
+export const toggleCommentsModal = (id: string) => {
+	toggleModal('comments-modal'+id);
 }
 
-type CommentsModalProp = { comments: IComment[] | undefined }
+type CommentsModalProp = { comments: IComment[] | undefined, id: string }
 
 export const CommentsModal = (
-	{ comments }: CommentsModalProp
+	{ comments, id }: CommentsModalProp
 ) => {
 	return (
-		<Modal label="comments-modal">
+		<Modal label={"comments-modal"+id}>
 
 			<div className={styles.container}>
 				{!comments && <p>No comments yet..</p>}
@@ -29,9 +29,10 @@ export const CommentsModal = (
 }
 
 const CommentsList = (
-	{ comments }: CommentsModalProp
+	{ comments }: {comments: IComment[] | undefined}
 ) => {
 	return <div className={styles.commentList}>
+		{comments?.length == 0 && <p>No comments yet...</p>}
 		{comments?.map(x =>
 			<Comment key={x.id} comment={x} />
 		)}

@@ -5,17 +5,17 @@ import { IUserLean } from "../../../interfaces";
 //components and utils
 import { Modal, toggleModal } from "../../Modal"
 
-type LikesModalPropsType = { likes: IUserLean[] | undefined }
+type LikesModalPropsType = { likes: IUserLean[] | undefined, id: string }
 
-export const toggleLikesModal = () => {
-	toggleModal('likes-modal');
+export const toggleLikesModal = (id: string) => {
+	toggleModal('likes-modal'+id);
 }
 
 export const LikesModal = (
-	{ likes }: LikesModalPropsType
+	{ likes, id }: LikesModalPropsType
 ) => {
 	return (
-		<Modal label="likes-modal">
+		<Modal label={"likes-modal"+id}>
 			<div className={styles.container}>
 				<LikeList likes={likes} />
 			</div>
@@ -24,7 +24,7 @@ export const LikesModal = (
 }
 
 const LikeList = (
-	{ likes }: LikesModalPropsType
+	{ likes }: { likes: IUserLean[] | undefined }
 ) => {
 	return <>
 		<h3>likes</h3>
