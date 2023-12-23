@@ -8,7 +8,7 @@ import { IPost, IUser } from '../../interfaces';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 //services
-import { getUser, getPosts } from '../../data/service';
+import { getUser } from '../../data/service';
 //components
 import { PostList } from '../../components/PostList';
 import { ConnectionsModal, toggleConnectionsModal } from '../../components/Modals/ConnectionsModal';
@@ -18,7 +18,7 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 export const Profile = () => {
     
     const { id } = useParams();
-    const { currentUser, currentPosts } = useProfile(id);
+    const { currentUser } = useProfile(id);
 
     return (
             //scroll to top when component pre-render, init modals on the page
@@ -35,7 +35,7 @@ export const Profile = () => {
 
                     <ProfileLower currentUser={currentUser} />
 
-                    <ProfilePostList currentPosts={currentPosts} />
+                    <ProfilePostList currentPosts={currentUser.posts} />
 
                     <ProfilePaginationControls />
                 </>}
@@ -46,16 +46,13 @@ export const Profile = () => {
 
 const useProfile = (id: string | undefined) => {
     const [currentUser, setCurrentUser] = useState<IUser | undefined>();
-    const [currentPosts, setCurrentPosts] = useState<IPost[] | undefined>();
 
     useEffect(() => {
         const user = getUser(id);
         setCurrentUser(user);
-        const posts = getPosts();
-        setCurrentPosts(posts);
     }, [id]);
 
-    return { currentUser, currentPosts };
+    return { currentUser };
 }
 
 const ProfileUpper = (

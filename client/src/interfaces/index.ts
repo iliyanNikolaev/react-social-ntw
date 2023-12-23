@@ -28,7 +28,6 @@ export interface IPost {
 
 export interface IComment {
     id: string,
-    owner: IUser,
+    owner: IUserLean,
     textContent: string,
-    likes: IUserLean[]
 }

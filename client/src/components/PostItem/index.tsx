@@ -7,6 +7,7 @@ import { IPost } from '../../interfaces';
 // components and utils
 import { Link } from 'react-router-dom';
 import { LikesModal, toggleLikesModal } from "../Modals/LikesModal";
+import { CommentsModal, toggleCommentsModal } from '../Modals/CommentsModal';
 
 type PostItemProp = { post: IPost | undefined };
 
@@ -18,6 +19,7 @@ export const PostItem = (
         //init modals on the page
         <div className={styles.container}>
             <LikesModal likes={post?.likes} />
+            <CommentsModal comments={post?.comments} />
 
             <PostUpper post={post} />
 
@@ -65,7 +67,7 @@ const PostControls = (
 
         <div className={styles.details}>
             <span onClick={toggleLikesModal} className={styles.viewLikesBtn}>{post?.likes.length} likes</span>
-            <span className={styles.viewCommentsBtn}>{post?.comments.length} comments</span>
+            <span onClick={toggleCommentsModal} className={styles.viewCommentsBtn}>{post?.comments.length} comments</span>
         </div>
     </div>
 }
