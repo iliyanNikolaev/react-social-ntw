@@ -1,17 +1,10 @@
-import { ReactElement, createContext, useContext, useState } from "react";
+import { FormEvent, FormEventHandler, ReactElement, createContext, useContext, useState } from "react";
 
 type AuthContextProps = {
-    loginHandler: (e: SubmitEvent) => void,
-    registerHandler: (e: SubmitEvent) => void,
+    loginHandler: FormEventHandler<HTMLFormElement>,
+    registerHandler: FormEventHandler<HTMLFormElement>,
     logoutHandler: () => void,
     userData: UserDataType
-}
-
-const AuthContextPropsInit = {
-    loginHandler: (e: SubmitEvent) => { e.preventDefault() },
-    registerHandler: (e: SubmitEvent) => { e.preventDefault() },
-    logoutHandler: () => {},
-    userData: { isAuth: false } 
 }
 
 type UserDataType = {
@@ -20,26 +13,40 @@ type UserDataType = {
 
 const userDataInit = { isAuth: false };
 
+const AuthContextPropsInit = {
+    loginHandler: (e: FormEvent) => { e.preventDefault() },
+    registerHandler: (e: FormEvent) => { e.preventDefault() },
+    logoutHandler: () => {},
+    userData: userDataInit
+}
+
 const AuthContext = createContext<AuthContextProps>(AuthContextPropsInit);
 
 export const AuthContextProvider = ({ children }: { children: ReactElement | ReactElement[] }) => {
 
-    const [userData, setUserData] = useState<UserDataType>(userDataInit)
+    const [userData, setUserData] = useState<UserDataType>(() => {
+        const userData = sessionStorage.getItem('tempAuth');
+        if(userData) {
+            return JSON.parse(userData);
+        }
+        return userDataInit;
+    })
 
-    const loginHandler = (e: SubmitEvent) => {
+    const loginHandler = (e: FormEvent) => {
+        e.preventDefault();
+        sessionStorage.setItem('tempAuth', JSON.stringify({isAuth: true}));
+        setUserData({ isAuth: true });
+    }
+
+    const registerHandler = (e: FormEvent) => {
         e.preventDefault();
 
         setUserData({ isAuth: true });
     }
 
-    const registerHandler = (e: SubmitEvent) => {
-        e.preventDefault();
-
-
-    }
-
     const logoutHandler = () => {
-
+        sessionStorage.removeItem('tempAuth');
+        setUserData({ isAuth: false });
     }
 
     const ctx = {
