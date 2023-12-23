@@ -1,8 +1,12 @@
 import styles from './connentions-modal.module.css';
-import { Modal } from "../../Modal"
+import { Modal, toggleModal } from "../../Modal"
 import { IUserLean } from '../../../interfaces';
 
 type ConnectionsModalPropsType = { connections: IUserLean[] | undefined }
+
+export const toggleConnectionsModal = () => {
+  toggleModal('connections-modal');
+}
 
 export const ConnectionsModal = (
   { connections }:

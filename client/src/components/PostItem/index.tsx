@@ -1,16 +1,23 @@
+import styles from './post-item.module.css';
+
 import { BiSolidLike } from "react-icons/bi";
 import { FaCommentAlt } from "react-icons/fa";
 
 import { Link } from 'react-router-dom';
 import { IPost } from '../../interfaces';
-import styles from './post-item.module.css';
-import { LikesModal } from "../Modals/LikesModal";
-import { toggleModal } from "../Modal";
 
-export const PostItem = ({ post } : { post: IPost | undefined }) => {
+import { LikesModal, toggleLikesModal } from "../Modals/LikesModal";
+
+export const PostItem = (
+    { post }:
+        { post: IPost | undefined }) => {
+
     return (
         <div className={styles.container}>
+
+            {/* init modals on the page */}
             <LikesModal likes={post?.likes} />
+
             <div className={styles.upper}>
                 <img className={styles.avatar} src={post?.owner.profilePic} alt="avatar" />
                 <div className={styles.author}>
@@ -26,15 +33,15 @@ export const PostItem = ({ post } : { post: IPost | undefined }) => {
 
                 <div className={styles.actions}>
                     <span className={styles.likeBtn}>
-                    <BiSolidLike className={styles.likeIcon} /> like
+                        <BiSolidLike className={styles.likeIcon} /> like
                     </span>
                     <span className={styles.commentBtn}>
-                    <FaCommentAlt className={styles.commentIcon} /> comment
+                        <FaCommentAlt className={styles.commentIcon} /> comment
                     </span>
                 </div>
 
                 <div className={styles.details}>
-                    <span onClick={() => toggleModal('likes-modal')} className={styles.viewLikesBtn}>{post?.likes.length} likes</span>
+                    <span onClick={toggleLikesModal} className={styles.viewLikesBtn}>{post?.likes.length} likes</span>
                     <span className={styles.viewCommentsBtn}>{post?.comments.length} comments</span>
                 </div>
             </div>

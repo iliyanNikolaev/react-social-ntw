@@ -1,8 +1,12 @@
 import { IUserLean } from "../../../interfaces";
-import { Modal } from "../../Modal"
+import { Modal, toggleModal } from "../../Modal"
 import styles from './likes-modal.module.css';
 
 type LikesModalPropsType = { likes: IUserLean[] | undefined }
+
+export const toggleLikesModal =() => {
+  toggleModal('likes-modal');
+}
 
 export const LikesModal = (
   { likes }:
