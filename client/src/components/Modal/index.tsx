@@ -1,7 +1,9 @@
+//css, icons
 import styles from './modal.module.css';
 import { FaWindowClose } from "react-icons/fa";
-
+//interfaces
 import { ReactElement } from "react"
+
 
 export function toggleModal(id: string) {
     const modal = document.getElementById(id) as HTMLDialogElement;
@@ -22,9 +24,10 @@ export function toggleModal(id: string) {
     }
 }
 
+type ModalProps = { children: ReactElement, label: string };
+
 export const Modal = (
-    { children, label }:
-        { children: ReactElement, label: string }
+    { children, label }: ModalProps
 ) => {
     return (
         <dialog className={styles.container} id={label}>

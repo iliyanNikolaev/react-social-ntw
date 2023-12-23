@@ -1,14 +1,15 @@
+//css, icons
 import styles from './profile.module.css';
 import { SlUserFollow } from "react-icons/sl";
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb';
-
+//interfaces
 import { IPost, IUser } from '../../interfaces';
-
+//hooks
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+//services
 import { getUser, getPosts } from '../../data/service';
-
+//components
 import { PostList } from '../../components/PostList';
 import { ConnectionsModal, toggleConnectionsModal } from '../../components/Modals/ConnectionsModal';
 import { ScrollToTop } from '../../components/ScrollToTop';
@@ -20,9 +21,8 @@ export const Profile = () => {
     const { currentUser, currentPosts } = useProfile(id);
 
     return (
+            //scroll to top when component pre-render, init modals on the page
         <div className={styles.wrapper}>
-
-            {/* scroll to top when component rerender and init modals for the page */}
             <ScrollToTop />
             <ConnectionsModal connections={currentUser?.connections} />
 
