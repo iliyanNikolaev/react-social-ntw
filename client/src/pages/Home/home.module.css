@@ -16,7 +16,7 @@
     border: none;
     border-radius: 0.35rem;
     color: white;
-    background-color: rgba(0, 100, 0, 0.7);
+    background-color: #13274F;
     padding: 0.4rem;
     font-size: small;
     cursor: pointer;
@@ -32,7 +32,7 @@
     text-decoration: none;
     font-size: large;
     font-weight: bold;
-    color: rgba(0, 100, 0, 0.7);
+    color: #13274F;
     margin-bottom: 1.5rem;
 }
 
@@ -42,6 +42,6 @@
 }
 
 .loginIcon {
-    color: rgba(0, 100, 0, 0.7);
+    color: #13274F;
     font-size: xx-large;
 }

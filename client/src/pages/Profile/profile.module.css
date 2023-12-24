@@ -15,7 +15,7 @@
     border-radius: 1rem;
     object-fit: cover;
     border-radius: 1rem;
-    border: 3px solid rgba(0, 100, 0, 0.7);
+    border: 3px solid #13274F;
 }
 
 .avatar {
@@ -47,7 +47,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    border-bottom: 1px solid rgba(0, 100, 0, 0.7);
+    border-bottom: 1px solid #13274F;
     border-radius: 0.1rem;
 }
 
@@ -60,7 +60,7 @@
     border: none;
     border-radius: 0.35rem;
     color: white;
-    background-color: rgba(0, 100, 0, 0.7);
+    background-color: #13274F;
     padding: 0.4rem;
     font-size: medium;
     cursor: pointer;
@@ -85,7 +85,7 @@
     border: none;
     border-radius: 0.35rem;
     color: white;
-    background-color: rgba(0, 100, 0, 0.7);
+    background-color: #13274F;
     padding: 0.4rem;
     font-size: small;
     cursor: pointer;
