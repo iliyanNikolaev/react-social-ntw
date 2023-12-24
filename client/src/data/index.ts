@@ -4,6 +4,7 @@ export const Users: IUser[] = [
     {
         id: "1",
         password: "123",
+        email: "musk@abv.bg",
         firstName: "Elon",
         lastName: "Musk",
         coverPic: "https://image.cnbcfm.com/api/v1/image/101717965-494553365.jpg?v=1583511833",
@@ -82,6 +83,7 @@ export const Users: IUser[] = [
     {
         id: "2",
         password: "123",
+        email: "mark@abv.bg",
         firstName: "Mark",
         lastName: "Zuckerberg",
         coverPic: "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2020/12/mark-zuckerberg-facebook-1210201.jpg",
@@ -125,6 +127,7 @@ export const Users: IUser[] = [
         password: "123",
         firstName: "Brendan",
         lastName: "Eich",
+        email: "brendan@abv.bg",
         profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
         coverPic: "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg",
         connections: [],
@@ -144,6 +147,7 @@ export const Users: IUser[] = [
         password: "123",
         firstName: "Iliyan",
         lastName: "Nikolaev",
+        email: "ilich@abv.bg",
         coverPic: "https://media.wired.com/photos/5ca648a330f00e47fd82ae77/master/pass/Culture_Matrix_Code_corridor.jpg",
         profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
         connections: [

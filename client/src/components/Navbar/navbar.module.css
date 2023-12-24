@@ -43,7 +43,8 @@
 .homeIcon,
 .profileIcon,
 .logoIcon,
-.usersIcon {
+.usersIcon,
+.logoutIcon {
     color: #13274F;
     font-size: xx-large;
 }
@@ -51,7 +52,8 @@
 .homeIcon:hover,
 .profileIcon:hover,
 .logoIcon:hover,
-.usersIcon:hover {
+.usersIcon:hover,
+.logoutIcon:hover {
     scale: 1.1;
 }
 
@@ -74,7 +76,8 @@
     .homeIcon,
     .profileIcon,
     .logoIcon,
-    .usersIcon {
+    .usersIcon,
+    .logoutIcon {
         font-size: x-large;
     }
 }

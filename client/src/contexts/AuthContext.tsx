@@ -1,8 +1,8 @@
-import { FormEvent, FormEventHandler, ReactElement, createContext, useContext, useState } from "react";
+import { ReactElement, createContext, useContext, useState } from "react";
 
 type AuthContextProps = {
-    loginHandler: FormEventHandler<HTMLFormElement>,
-    registerHandler: FormEventHandler<HTMLFormElement>,
+    loginHandler: (data: { email: string, password: string }) => void,
+    registerHandler: (data: { email: string, password: string }) => void,
     logoutHandler: () => void,
     userData: UserDataType
 }
@@ -14,9 +14,9 @@ type UserDataType = {
 const userDataInit = { isAuth: false };
 
 const AuthContextPropsInit = {
-    loginHandler: (e: FormEvent) => { e.preventDefault() },
-    registerHandler: (e: FormEvent) => { e.preventDefault() },
-    logoutHandler: () => {},
+    loginHandler: (data: { email: string, password: string }) => { console.log(data) },
+    registerHandler: (data: { email: string, password: string }) => { console.log(data) },
+    logoutHandler: () => { },
     userData: userDataInit
 }
 
@@ -26,21 +26,21 @@ export const AuthContextProvider = ({ children }: { children: ReactElement | Rea
 
     const [userData, setUserData] = useState<UserDataType>(() => {
         const userData = sessionStorage.getItem('tempAuth');
-        if(userData) {
+        if (userData) {
             return JSON.parse(userData);
         }
         return userDataInit;
     })
 
-    const loginHandler = (e: FormEvent) => {
-        e.preventDefault();
-        sessionStorage.setItem('tempAuth', JSON.stringify({isAuth: true}));
+    const loginHandler = (data: { email: string, password: string }) => {
+        console.log(data);
+        sessionStorage.setItem('tempAuth', JSON.stringify({ isAuth: true }));
         setUserData({ isAuth: true });
     }
 
-    const registerHandler = (e: FormEvent) => {
-        e.preventDefault();
-
+    const registerHandler = (data: { email: string, password: string }) => {
+        console.log(data);
+        sessionStorage.setItem('tempAuth', JSON.stringify({ isAuth: true }));
         setUserData({ isAuth: true });
     }
 
