@@ -8,12 +8,15 @@ import { IPost } from '../../interfaces';
 import { Link } from 'react-router-dom';
 import { LikesModal, toggleLikesModal } from "../Modals/LikesModal";
 import { CommentsModal, toggleCommentsModal } from '../Modals/CommentsModal';
+import { UserDataType, useAuthContext } from '../../contexts/AuthContext';
 
-type PostItemProp = { post: IPost | undefined };
+type PostItemProp = { post: IPost | undefined, userData: UserDataType };
 
 export const PostItem = (
     { post }: PostItemProp
 ) => {
+
+    const { userData } = useAuthContext();
 
     return (
         //init modals on the page
@@ -23,11 +26,11 @@ export const PostItem = (
 
                 <CommentsModal id={post.id} comments={post?.comments} />
 
-                <PostUpper post={post} />
+                <PostUpper post={post} userData={userData} />
 
-                <PostLower post={post} />
+                <PostLower post={post} userData={userData} />
 
-                <PostControls post={post} />
+                <PostControls post={post} userData={userData} />
             </>}
         </div>
     )
@@ -55,18 +58,19 @@ const PostLower = (
 }
 
 const PostControls = (
-    { post }: PostItemProp
+    { post, userData }: PostItemProp
 ) => {
     return <div className={styles.controls}>
-
-        <div className={styles.actions}>
-            <span className={styles.likeBtn}>
-                <BiSolidLike className={styles.likeIcon} /> like
-            </span>
-            <span className={styles.commentBtn}>
-                <FaCommentAlt className={styles.commentIcon} /> comment
-            </span>
-        </div>
+        {userData.isAuth ? <>
+            <div className={styles.actions}>
+                <span className={styles.likeBtn}>
+                    <BiSolidLike className={styles.likeIcon} /> like
+                </span>
+                <span className={styles.commentBtn}>
+                    <FaCommentAlt className={styles.commentIcon} /> comment
+                </span>
+            </div>
+        </> : null}
 
         <div className={styles.details}>
             {post && <>

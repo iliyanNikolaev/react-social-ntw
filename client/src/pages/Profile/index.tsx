@@ -7,6 +7,7 @@ import { IPost, IUser } from '../../interfaces';
 //hooks
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { UserDataType, useAuthContext } from '../../contexts/AuthContext';
 //services
 import { getUser } from '../../data/api';
 //components
@@ -16,12 +17,13 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 
 
 export const Profile = () => {
-    
+
     const { id } = useParams();
     const { currentUser } = useProfile(id);
+    const { userData } = useAuthContext();
 
     return (
-            //scroll to top when component pre-render, init modals on the page
+        //scroll to top when component pre-render, init modals on the page
         <div className={styles.wrapper}>
             <ScrollToTop />
             <ConnectionsModal connections={currentUser?.connections} />
@@ -33,7 +35,7 @@ export const Profile = () => {
                 {currentUser && <>
                     <ProfileUpper currentUser={currentUser} />
 
-                    <ProfileLower currentUser={currentUser} />
+                    <ProfileLower currentUser={currentUser} userData={userData} />
 
                     <ProfilePostList currentPosts={currentUser.posts} />
 
@@ -68,8 +70,8 @@ const ProfileUpper = (
 }
 
 const ProfileLower = (
-    { currentUser }:
-        { currentUser: IUser }
+    { currentUser, userData }:
+        { currentUser: IUser, userData: UserDataType }
 ) => {
     return <div className={styles.lower}>
         <div className={styles.controls}>
@@ -79,7 +81,8 @@ const ProfileLower = (
             >
                 {currentUser.connections.length} followers
             </span>
-            <button className={styles.btn}><SlUserFollow /> follow</button>
+            {userData.isAuth && <button className={styles.btn}><SlUserFollow /> follow</button>}
+
         </div>
     </div>
 }

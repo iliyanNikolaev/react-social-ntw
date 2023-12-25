@@ -7,7 +7,7 @@ type AuthContextProps = {
     userData: UserDataType
 }
 
-type UserDataType = {
+export type UserDataType = {
     isAuth: boolean
 }
 
