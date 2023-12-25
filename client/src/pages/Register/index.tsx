@@ -1,5 +1,8 @@
-//css
+//css, icons
 import styles from './register.module.css';
+import { MdAlternateEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { FaRepeat } from "react-icons/fa6";
 //hooks
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -14,10 +17,11 @@ export const Register = () => {
 		<div className={styles.wrapper}>
 
 			<div className={styles.container}>
-				<h1>register</h1>
+				<h1 className={styles.heading}>register</h1>
 
 				<RegisterForm />
-
+				
+				<LoginLink />
 			</div>
 		</div>
 	)
@@ -37,10 +41,28 @@ const RegisterForm = () => {
 	}
 
 	return <form className={styles.registerForm} onSubmit={onSubmit}>
-		<input type="email" placeholder='email' />
-		<input type="password" placeholder='password' />
-		<input type="password" placeholder='repeat' />
-		<button>register</button>
-		<Link to='/login'>login</Link>
+
+		<div className={styles.inputContainer}>
+			<MdAlternateEmail className={styles.icon} />
+			<input className={styles.input} type="email" placeholder='email' />
+		</div>
+
+		<div className={styles.inputContainer}>
+			<RiLockPasswordLine className={styles.icon} />
+			<input className={styles.input} type="password" placeholder='password' />
+		</div>
+
+		<div className={styles.inputContainer}>
+			<FaRepeat className={styles.icon} />
+			<input className={styles.input} type="password" placeholder='repeat' />
+		</div>
+
+		<button className={styles.btn}>register</button>
 	</form>
+}
+
+const LoginLink = () => {
+	return <span className={styles.redirect}> If you already have account,
+		<Link className={styles.link} to='/login'> login here!</Link>
+	</span>
 }
