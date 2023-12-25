@@ -2,6 +2,7 @@
 import styles from './profile.module.css';
 import { SlUserFollow } from "react-icons/sl";
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb';
+import { FaEdit } from "react-icons/fa";
 //interfaces
 import { IPost, IUser } from '../../interfaces';
 //hooks
@@ -13,6 +14,7 @@ import { getUser } from '../../data/api';
 //components
 import { PostList } from '../../components/PostList';
 import { ConnectionsModal, toggleConnectionsModal } from '../../components/Modals/ConnectionsModal';
+import { EditProfileModal, toggleEditProfileModal } from '../../components/Modals/EditProfileModal';
 import { ScrollToTop } from '../../components/ScrollToTop';
 
 
@@ -26,7 +28,10 @@ export const Profile = () => {
         //scroll to top when component pre-render, init modals on the page
         <div className={styles.wrapper}>
             <ScrollToTop />
+
             <ConnectionsModal connections={currentUser?.connections} />
+
+            <EditProfileModal currentUser={currentUser}/>
 
             <div className={styles.container}>
 
@@ -59,13 +64,22 @@ const useProfile = (id: string | undefined) => {
 
 const ProfileUpper = (
     { currentUser }:
-        { currentUser: IUser }
+        { currentUser: IUser}
 ) => {
     return <div className={styles.upper}>
+
+        <EditProfileIcon />
+        
         <img className={styles.cover} src={currentUser.coverPic} alt="cover" />
         <img className={styles.avatar} src={currentUser.profilePic} alt="avatar" />
 
         <span className={styles.fullName}>{currentUser.firstName} {currentUser.lastName}</span>
+    </div>
+}
+
+const EditProfileIcon = () => {
+    return <div className={styles.editIconContainer} onClick={toggleEditProfileModal}>
+        <FaEdit className={styles.editIcon} />
     </div>
 }
 
