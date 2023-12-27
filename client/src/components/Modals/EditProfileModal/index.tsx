@@ -18,6 +18,7 @@ export const EditProfileModal = (
     return (
         <Modal label="edit-profile-modal">
             <div className={styles.container}>
+                <h3 className={styles.heading}>edit profile</h3>
                 <EditProfileForm currentUser={currentUser}/>
             </div>
         </Modal>

@@ -2,7 +2,7 @@
 import styles from './profile.module.css';
 import { SlUserFollow } from "react-icons/sl";
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb';
-import { FaEdit } from "react-icons/fa";
+import { FaUserEdit } from "react-icons/fa";
 //interfaces
 import { IPost, IUser } from '../../interfaces';
 //hooks
@@ -79,7 +79,7 @@ const ProfileUpper = (
 
 const EditProfileIcon = () => {
     return <div className={styles.editIconContainer} onClick={toggleEditProfileModal}>
-        <FaEdit className={styles.editIcon} />
+        <FaUserEdit className={styles.editIcon} />
     </div>
 }
 
