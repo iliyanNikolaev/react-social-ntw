@@ -17,23 +17,16 @@
     font-size: large;
 }
 
-.addFile{
-    cursor: pointer;
-}
-
-.addHidden{
-    display: none;
-}
-
-.addVisible{
-    color: #415171;
-    font-size: x-large;
-}
-
-.addFileBtn{
-    display: flex;
-    align-items: center;
-    font-size: x-small;
+.text{
+    outline: none;
+    resize: none;
+    border-color: #415171;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    width: 90%;
+    height: 3rem;
+    font-size: medium;
+    margin-bottom: 1rem;
 }
 
 .btn {
@@ -44,16 +37,7 @@
     padding: 0.4rem;
     font-size: medium;
     cursor: pointer;
-}
-
-.text{
-    outline: none;
-    resize: none;
-    border-color: #415171;
-    border-radius: 0.5rem;
-    background-color: transparent;
-    width: 90%;
-    font-size: medium;
+    margin-top: 1rem;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

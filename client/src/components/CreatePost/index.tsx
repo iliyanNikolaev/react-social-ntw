@@ -1,6 +1,7 @@
 //css, icons
 import styles from './create-post.module.css';
-import { MdAddPhotoAlternate } from "react-icons/md";
+//components
+import { AddPhoto } from '../AddPhoto';
 
 
 export const CreatePost = () => {
@@ -11,21 +12,10 @@ export const CreatePost = () => {
       
       <textarea className={styles.text} rows={2}></textarea>
       
-      <AddPhoto />
+      <AddPhoto type='post'/>
       
       <button className={styles.btn}>post</button>
    
     </div>
   )
-}
-
-const AddPhoto = () => {
-  return <label htmlFor='file' className={styles.addFile}>
-    <div className={styles.addFileBtn}>
-      add photo
-      <MdAddPhotoAlternate className={styles.addVisible} />
-    </div>
-
-    <input id='file' className={styles.addHidden} type="file" />
-  </label>
 }
