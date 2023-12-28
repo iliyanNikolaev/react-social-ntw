@@ -9,8 +9,8 @@ interface User {
     lastName: string,
     coverPic?: string,
     profilePic?: string,
-    connections: IUserLean[], //ref -> User populate id, firstName, lastName, profilePic
-    posts: IPost[] // ref -> Posts populate all
+    connections: string[], //ref -> User populate id, firstName, lastName, profilePic
+    posts: string[] // ref -> Posts populate all
 }
 ```
 ```typescript
@@ -35,11 +35,11 @@ interface IComment {
 ```typescript
 * Home
 onInit() {
-    1 fetch posts, save in state 
+    1 needs only posts IDs ( pagination )
     2 render
 }
 savedInState() {
-    posts
+    postsIDs
 }
 
 ```
@@ -56,3 +56,6 @@ savedInState() {
     posts
 }
 ```
+
+**components**
+1 fetch post by id

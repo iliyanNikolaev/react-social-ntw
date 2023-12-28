@@ -37,7 +37,7 @@ export const Home = () => {
 
 const useHome = () => {
   const [posts, setPosts] = useState<IPost[] | undefined>();
-
+  
   useEffect(() => {
     const currentPosts = getPosts();
     setPosts(currentPosts);

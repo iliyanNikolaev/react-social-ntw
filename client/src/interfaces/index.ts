@@ -31,3 +31,12 @@ export interface IComment {
     owner: IUserLean,
     textContent: string,
 }
+
+export interface IUserData {
+    isAuth: boolean,
+    id?: string,
+    firstName?: string,
+    lastName?: string,
+    coverPic?: string,
+    profilePic?: string
+}
