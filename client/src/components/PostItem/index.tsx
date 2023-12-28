@@ -1,7 +1,6 @@
 // css, icons
 import styles from './post-item.module.css';
 import { BiSolidLike } from "react-icons/bi";
-import { FaCommentAlt } from "react-icons/fa";
 // interfaces
 import { IPost } from '../../interfaces';
 // components and utils
@@ -65,9 +64,6 @@ const PostControls = (
             <div className={styles.actions}>
                 <span className={styles.likeBtn}>
                     <BiSolidLike className={styles.likeIcon} /> like
-                </span>
-                <span className={styles.commentBtn}>
-                    <FaCommentAlt className={styles.commentIcon} /> comment
                 </span>
             </div>
         </> : null}

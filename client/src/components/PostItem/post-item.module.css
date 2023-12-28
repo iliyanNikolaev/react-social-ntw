@@ -68,25 +68,19 @@
     gap: 10rem;
 }
 
-.likeBtn,
-.commentBtn{
+.likeBtn{
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.likeBtn:hover,
-.commentBtn:hover{
+.likeBtn:hover{
     cursor: pointer;
     scale: 0.9;
 }
 
 .likeIcon{
     color: #13274F;
-}
-
-.commentIcon{
-    color: #006A4E;
 }
 
 .details{

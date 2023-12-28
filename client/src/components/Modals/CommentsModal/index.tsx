@@ -1,5 +1,6 @@
-//css
+//css, icons
 import styles from './comments-modal.module.css';
+import { FaCommentDots } from "react-icons/fa";
 //interfaces
 import { IComment } from '../../../interfaces';
 //components and utils
@@ -22,6 +23,8 @@ export const CommentsModal = (
 				{!comments && <p>No comments yet..</p>}
 
 				<CommentsList comments={comments} />
+
+				<AddCommentForm />
 			</div>
 
 		</Modal>
@@ -51,4 +54,17 @@ const Comment = (
 			<span className={styles.textContent}>{comment.textContent}</span>
 		</div>
 	</div>
+}
+
+const AddCommentForm = () => {
+	return <form className={styles.addCommentForm}>
+		<span className={styles.addCommentHeading}>add comment</span>
+		
+		<div className={styles.inputContainer}>
+			<FaCommentDots className={styles.icon} />
+			<input className={styles.input} type="text" placeholder='comment' />
+		</div>
+
+		<button className={styles.btn}>Add</button>
+	</form>
 }
