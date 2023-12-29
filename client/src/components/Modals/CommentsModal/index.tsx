@@ -5,24 +5,33 @@ import { FaCommentDots } from "react-icons/fa";
 import { IComment } from '../../../interfaces';
 //components and utils
 import { Modal, toggleModal } from "../../Modal"
+import { useEffect, useState } from 'react';
+import { getCommentsForPost } from '../../../data/api';
 
 
 export const toggleCommentsModal = (id: string) => {
 	toggleModal('comments-modal'+id);
 }
 
-type CommentsModalProp = { comments: IComment[] | undefined, id: string }
 
 export const CommentsModal = (
-	{ comments, id }: CommentsModalProp
+	{ id }: { id: string }
 ) => {
+	const [currentComments, setCurrentCommens] = useState<IComment[]>();
+
+	useEffect(() => {
+		getCommentsForPost(id).then(data => {
+			setCurrentCommens(data);
+		});
+	}, [])
+
 	return (
 		<Modal label={"comments-modal"+id}>
 
 			<div className={styles.container}>
-				{!comments && <p>No comments yet..</p>}
+				{!currentComments && <p>No comments yet..</p>}
 
-				<CommentsList comments={comments} />
+				<CommentsList comments={currentComments} />
 
 				<AddCommentForm />
 			</div>

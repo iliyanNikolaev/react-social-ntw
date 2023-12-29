@@ -1,10 +1,11 @@
 import { ReactElement, createContext, useContext, useState } from "react";
-import { IUserData } from "../interfaces";
+import { IUserDataLogged, IUserDataNotLogged } from "../interfaces";
+
 type AuthContextProps = {
     loginHandler: (data: { email: string, password: string }) => void,
     registerHandler: (data: { email: string, password: string }) => void,
     logoutHandler: () => void,
-    userData: IUserData
+    userData: IUserDataLogged | IUserDataNotLogged
 }
 
 const userDataInit = { isAuth: false };
@@ -28,7 +29,7 @@ const AuthContext = createContext<AuthContextProps>(AuthContextPropsInit);
 
 export const AuthContextProvider = ({ children }: { children: ReactElement | ReactElement[] }) => {
 
-    const [userData, setUserData] = useState<IUserData>(() => {
+    const [userData, setUserData] = useState<IUserDataLogged | IUserDataNotLogged>(() => {
         const userData = sessionStorage.getItem('tempAuth');
         if (userData) {
             return JSON.parse(userData);

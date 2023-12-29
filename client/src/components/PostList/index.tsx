@@ -1,14 +1,13 @@
-import { IPost } from "../../interfaces"
 import { PostItem } from "../PostItem"
 
-export const PostList = ({posts}: {posts: IPost[] | undefined}) => {
+export const PostList = ({ postsIDs }: {postsIDs: string[]}) => {
     return (
         <div>
-            {!posts && <p>Error</p>}
+            {!postsIDs && <p>Error</p>}
 
-            {posts && posts.length == 0 && <p>No posts</p>}
+            {postsIDs && postsIDs.length == 0 && <p>No posts</p>}
 
-            {posts && posts.map(x => <PostItem key={x.id} post={x} />)}
+            {postsIDs && postsIDs.map(x => <PostItem key={x} postId={x} />)}
         </div>
     )
 }

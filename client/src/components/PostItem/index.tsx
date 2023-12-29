@@ -4,31 +4,33 @@ import { BiSolidLike } from "react-icons/bi";
 import { BiSolidDislike } from "react-icons/bi";
 // interfaces
 import { IPost } from '../../interfaces';
-import { IUserData } from '../../interfaces';
+import { IUserDataLogged, IUserDataNotLogged } from '../../interfaces';
 // components and utils
 import { Link } from 'react-router-dom';
 import { LikesModal, toggleLikesModal } from "../Modals/LikesModal";
 import { CommentsModal, toggleCommentsModal } from '../Modals/CommentsModal';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useEffect, useState } from 'react';
+import { getPostById } from '../../data/api';
 
-type PostItemProp = { post: IPost | undefined, userData?: IUserData, liked?: boolean, toggleLike?: () => void };
+type PostItemProp = { post: IPost | undefined, userData?: IUserDataLogged | IUserDataNotLogged, liked?: boolean, toggleLike?: () => void };
 
 export const PostItem = (
-    { post }: PostItemProp
+    { postId }: {postId: string}
 ) => {
     // todo... this component needs only id and he will fetch postData and saved in state
     const { userData } = useAuthContext();
+
+    const [currentPost, setCurrentPost ]= useState<IPost>();
+
     const [liked, setLiked] = useState<boolean>(false);
 
 
     useEffect(() => {
 
-        post?.likes.forEach(l => {
-            if(l.id == userData.id) {
-                setLiked(true);
-            }
-        })
+        getPostById(postId).then(data => {
+            setCurrentPost(data);
+        });
     }, []);
 
     const toggleLike = () => {
@@ -43,35 +45,35 @@ export const PostItem = (
     return (
         //init modals on the page
         <div className={styles.container}>
-            {post && <>
-                <LikesModal id={post.id} likes={post.likes} />
+            {currentPost && <>
+                <LikesModal id={currentPost.id} /> 
+                {/* likesModal will receive likes = string[] */}
+                <CommentsModal id={currentPost.id} />
+                {/* likesModal will receive comments = string[] */}
+                <PostUpper post={currentPost} />
 
-                <CommentsModal id={post.id} comments={post?.comments} />
+                <PostLower post={currentPost} />
 
-                <PostUpper post={post} userData={userData} />
-
-                <PostLower post={post} userData={userData} />
-
-                <PostControls post={post} userData={userData} liked={liked} toggleLike={toggleLike}/>
+                <PostControls post={currentPost} userData={userData} liked={liked} toggleLike={toggleLike}/>
             </>}
         </div>
     )
 }
 
 const PostUpper = (
-    { post }: PostItemProp
+    { post }: { post: IPost }
 ) => {
     return <div className={styles.upper}>
         <img className={styles.avatar} src={post?.owner.profilePic} alt="avatar" />
         <div className={styles.author}>
-            <Link to={`/profile/${post?.owner.id}`} className={styles.fullName}>{post?.owner.firstName} {post?.owner.lastName}</Link>
+            <Link to={`/profile/${post.owner.id}`} className={styles.fullName}>{post.owner.firstName} {post.owner.lastName}</Link>
             <span className={styles.time}>2 hours ago</span>
         </div>
     </div>
 }
 
 const PostLower = (
-    { post }: PostItemProp
+    { post }: { post: IPost }
 ) => {
     return <div className={styles.lower}>
         <p className={styles.postContent}>{post?.textContent}</p>
@@ -93,8 +95,8 @@ const PostControls = (
 
         <div className={styles.details}>
             {post && <>
-                <span onClick={() => toggleLikesModal(post.id)} className={styles.viewLikesBtn}>{post?.likes.length} likes</span>
-                <span onClick={() => toggleCommentsModal(post.id)} className={styles.viewCommentsBtn}>{post?.comments.length} comments</span>
+                <span onClick={() => toggleLikesModal(post.id)} className={styles.viewLikesBtn}>{post.likes.length} likes</span>
+                <span onClick={() => toggleCommentsModal(post.id)} className={styles.viewCommentsBtn}>{post.comments.length} comments</span>
             </>}
         </div>
     </div>

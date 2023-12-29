@@ -1,37 +1,51 @@
 //css
 import styles from './likes-modal.module.css';
 //interfaces
-import { IUserLean } from "../../../interfaces";
+import { ILike, IUserLean } from "../../../interfaces";
 //components and utils
 import { Modal, toggleModal } from "../../Modal"
+import { useEffect, useState } from 'react';
+import { getLikesForPost } from '../../../data/api';
 
-type LikesModalPropsType = { likes: IUserLean[] | undefined, id: string }
 
 export const toggleLikesModal = (id: string) => {
-	toggleModal('likes-modal'+id);
+	toggleModal('likes-modal' + id);
 }
 
 export const LikesModal = (
-	{ likes, id }: LikesModalPropsType
+	{ id }:
+		{ id: string }
 ) => {
+	const [currentLikes, setCurrentLikes] = useState<ILike[]>();
+
+	useEffect(() => {
+		getLikesForPost(id).then(data => {
+			setCurrentLikes(data);
+		});
+	}, []);
+
 	return (
-		<Modal label={"likes-modal"+id}>
+		<Modal label={"likes-modal" + id}>
 			<div className={styles.container}>
-				<LikeList likes={likes} />
+				<LikeList likes={currentLikes} />
 			</div>
 		</Modal>
 	)
 }
 
 const LikeList = (
-	{ likes }: { likes: IUserLean[] | undefined }
+	{ likes }: { likes: ILike[] | undefined }
 ) => {
 	return <>
 		<h3>likes</h3>
-		<div className={styles.content}>
-			{likes?.length == 0 && <p>No likes yet..</p>}
-			{likes?.map(x => <Like key={x.id} user={x} />)}
-		</div>
+		
+		{likes && <>
+			<div className={styles.content}>
+				{likes?.length == 0 && <p>No likes yet..</p>}
+
+				{likes?.map(x => <Like key={x.id} user={x.owner} />)}
+			</div>
+		</>}
 	</>
 }
 

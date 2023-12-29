@@ -6,8 +6,20 @@ export interface IUser {
     lastName: string,
     coverPic?: string,
     profilePic?: string,
-    connections: IUserLean[],
-    posts: IPost[]
+    connections: string[], 
+    posts: string[]
+}
+
+export interface LoginDto{
+    email: string,
+    password: string,
+}
+
+export interface RegisterDto {
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string,
 }
 
 export interface IUserLean {
@@ -20,23 +32,34 @@ export interface IUserLean {
 export interface IPost {
     id: string,
     owner: IUserLean,
-    textContent?: string,
+    textContent: string,
     img?: string,
-    likes: IUserLean[],
-    comments: IComment[];
+    likes: string[], // ref likes
+    comments: string[]; // ref comments
+}
+
+export interface ILike {
+    id: string,
+    post: string, //ref posts
+    owner: IUserLean // ref user populate id, firstName, lastName, profilePic
 }
 
 export interface IComment {
     id: string,
-    owner: IUserLean,
+    post: string, // ref post
+    owner: IUserLean, // ref user populate id, firstName, lastName, profilePic
     textContent: string,
 }
 
-export interface IUserData {
+export interface IUserDataLogged {
     isAuth: boolean,
-    id?: string,
-    firstName?: string,
-    lastName?: string,
-    coverPic?: string,
-    profilePic?: string
+    id: string,
+    firstName: string,
+    lastName: string,
+    coverPic: string,
+    profilePic: string
+}
+
+export interface IUserDataNotLogged {
+    isAuth: boolean
 }

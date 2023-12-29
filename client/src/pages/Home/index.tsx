@@ -4,12 +4,11 @@ import { TbPlayerTrackPrevFilled } from "react-icons/tb";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { MdOutlineLogin } from "react-icons/md";
 //interfaces
-import { IPost } from "../../interfaces";
 //hooks
 import { useEffect, useState } from "react";
 import { useAuthContext } from '../../contexts/AuthContext';
 //services
-import { getPosts } from "../../data/api";
+import { getPostsIDs } from "../../data/api";
 //components
 import { CreatePost } from '../../components/CreatePost';
 import { PostList } from "../../components/PostList";
@@ -18,7 +17,7 @@ import { Link } from 'react-router-dom';
 
 export const Home = () => {
 
-  const { posts } = useHome();
+  const { postsIDs } = useHome();
   const { userData } = useAuthContext();
 
   return (
@@ -27,7 +26,7 @@ export const Home = () => {
       <div className={styles.container}>
         {userData.isAuth ? <CreatePost /> : <HomeUpperNotLogged />}
 
-        <PostList posts={posts} />
+        {postsIDs && <PostList postsIDs={postsIDs} />}
 
         <HomePaginationControls />
       </div>
@@ -36,14 +35,15 @@ export const Home = () => {
 }
 
 const useHome = () => {
-  const [posts, setPosts] = useState<IPost[] | undefined>();
+  const [postsIDs, setPostsIDs] = useState<string[]>();
   
   useEffect(() => {
-    const currentPosts = getPosts();
-    setPosts(currentPosts);
+    getPostsIDs().then(data => {
+      setPostsIDs(data);
+    });
   }, []);
 
-  return { posts };
+  return { postsIDs };
 }
 
 const HomePaginationControls = () => {
