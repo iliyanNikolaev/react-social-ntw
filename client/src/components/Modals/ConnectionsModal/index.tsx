@@ -4,16 +4,26 @@ import styles from './connentions-modal.module.css';
 import { IUserLean } from '../../../interfaces';
 //components and utils
 import { Modal, toggleModal } from "../../Modal"
+import { useEffect, useState } from 'react';
+import { getUserConnections } from '../../../data/api';
 
-type ConnectionsModalPropsType = { connections: IUserLean[] | undefined }
 
 export const toggleConnectionsModal = () => {
 	toggleModal('connections-modal');
 }
 
 export const ConnectionsModal = (
-	{ connections }: ConnectionsModalPropsType
+	{ userId }: { userId: string }
 ) => {
+
+	const [connections, setConnections] = useState<IUserLean[]>();
+
+	useEffect(() => {
+		getUserConnections(userId).then(data => {
+			setConnections(data);
+		}); 
+	}, [userId]);
+
 	return (
 		<Modal label="connections-modal">
 

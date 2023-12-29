@@ -6,7 +6,7 @@ export interface IUser {
     lastName: string,
     coverPic?: string,
     profilePic?: string,
-    connections: string[], 
+    connections: IUserLean[], // ref user populate id, firstName, lastName, profilePic
     posts: string[]
 }
 

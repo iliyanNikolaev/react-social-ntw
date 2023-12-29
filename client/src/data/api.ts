@@ -1,4 +1,4 @@
-import { IComment, ILike, IPost, IUser } from "../interfaces";
+import { IComment, ILike, IPost, IUser, IUserLean } from "../interfaces";
 
 import { Comments, Likes, Posts, Users } from "./index";
 
@@ -16,6 +16,29 @@ export async function getUser(id: string): Promise<IUser> {
 
 export async function getPosts(): Promise<IPost[]> {
     return Posts;
+}
+
+export async function getPostsForUser(userId: string): Promise<string[]> {
+    return new Promise((res, rej) => {
+        const currentUser = Users.find(u => u.id == userId);
+
+        if(currentUser) {
+            res(currentUser.posts);
+        } else {
+            rej('this user not exist')
+        }
+    });
+} 
+
+export async function getUserConnections(userId: string): Promise<IUserLean[]> {
+    return new Promise((res, rej) => {
+        const currentUser = Users.find(u => u.id == userId);
+        if(currentUser) {
+            res(currentUser.connections);
+        } else {
+            rej('this user not exist')
+        }
+    });
 }
 
 export async function getPostById(id: string): Promise<IPost> {

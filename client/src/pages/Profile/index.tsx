@@ -4,13 +4,13 @@ import { SlUserFollow } from "react-icons/sl";
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb';
 import { FaUserEdit } from "react-icons/fa";
 //interfaces
-import { IPost, IUser } from '../../interfaces';
+import { IUser, IUserDataLogged, IUserDataNotLogged } from '../../interfaces';
 //hooks
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserDataType, useAuthContext } from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 //services
-import { getUser } from '../../data/api';
+import { getPostsForUser, getUser } from '../../data/api';
 //components
 import { PostList } from '../../components/PostList';
 import { ConnectionsModal, toggleConnectionsModal } from '../../components/Modals/ConnectionsModal';
@@ -21,7 +21,7 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 export const Profile = () => {
 
     const { id } = useParams();
-    const { currentUser } = useProfile(id);
+    const { currentUser, userPostsIDs } = useProfile(id);
     const { userData } = useAuthContext();
 
     return (
@@ -29,7 +29,7 @@ export const Profile = () => {
         <div className={styles.wrapper}>
             <ScrollToTop />
 
-            <ConnectionsModal connections={currentUser?.connections} />
+            {id && <ConnectionsModal userId={id} />}
 
             <EditProfileModal currentUser={currentUser}/>
 
@@ -42,7 +42,7 @@ export const Profile = () => {
 
                     <ProfileLower currentUser={currentUser} userData={userData} />
 
-                    <ProfilePostList currentPosts={currentUser.posts} />
+                    {userPostsIDs && <ProfilePostList currentPosts={userPostsIDs} />}
 
                     <ProfilePaginationControls />
                 </>}
@@ -52,14 +52,25 @@ export const Profile = () => {
 }
 
 const useProfile = (id: string | undefined) => {
-    const [currentUser, setCurrentUser] = useState<IUser | undefined>();
-
+    const [currentUser, setCurrentUser] = useState<IUser>();
+    const [userPostsIDs, setUserPostsIDs] = useState<string[]>();
+    
     useEffect(() => {
-        const user = getUser(id);
-        setCurrentUser(user);
+        if(id) {
+            getUser(id).then(data => {
+                setCurrentUser(data);
+            });
+        }
     }, [id]);
 
-    return { currentUser };
+    useEffect(() =>{
+        if(id) {
+            getPostsForUser(id).then(data => {
+                setUserPostsIDs(data);
+            })
+        }
+    }, [id]);
+    return { currentUser, userPostsIDs };
 }
 
 const ProfileUpper = (
@@ -85,7 +96,7 @@ const EditProfileIcon = () => {
 
 const ProfileLower = (
     { currentUser, userData }:
-        { currentUser: IUser, userData: UserDataType }
+        { currentUser: IUser, userData: IUserDataLogged | IUserDataNotLogged }
 ) => {
     return <div className={styles.lower}>
         <div className={styles.controls}>
@@ -103,9 +114,9 @@ const ProfileLower = (
 
 const ProfilePostList = (
     { currentPosts }
-        : { currentPosts: IPost[] | undefined }) => {
+        : { currentPosts: string[] }) => {
     return <div className={styles.posts}>
-        <PostList posts={currentPosts} />
+        <PostList postsIDs={currentPosts} />
     </div>
 }
 

@@ -9,7 +9,24 @@ export const Users: IUser[] = [
         lastName: "Musk",
         coverPic: "https://image.cnbcfm.com/api/v1/image/101717965-494553365.jpg?v=1583511833",
         profilePic: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1229892983-square.jpg",
-        connections: [],
+        connections: [{
+            id: "2",
+            firstName: "Mark",
+            lastName: "Zuckerberg",
+            profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
+        },
+        {
+            id: "3",
+            firstName: "Brendan",
+            lastName: "Eich",
+            profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
+        },
+        {
+            id: "4",
+            firstName: "Iliyan",
+            lastName: "Nikolaev",
+            profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
+        }],
         posts: ["2133124"]
     },
     {
@@ -20,7 +37,19 @@ export const Users: IUser[] = [
         lastName: "Zuckerberg",
         coverPic: "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2020/12/mark-zuckerberg-facebook-1210201.jpg",
         profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
-        connections: [],
+        connections: [
+        {
+            id: "3",
+            firstName: "Brendan",
+            lastName: "Eich",
+            profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
+        },
+        {
+            id: "4",
+            firstName: "Iliyan",
+            lastName: "Nikolaev",
+            profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
+        }],
         posts: ["435342"]
     },
     {
@@ -31,7 +60,18 @@ export const Users: IUser[] = [
         email: "brendan@abv.bg",
         profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
         coverPic: "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg",
-        connections: [],
+        connections: [{
+            id: "2",
+            firstName: "Mark",
+            lastName: "Zuckerberg",
+            profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
+        },
+        {
+            id: "4",
+            firstName: "Iliyan",
+            lastName: "Nikolaev",
+            profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
+        }],
         posts: []
     },
     {
@@ -42,7 +82,18 @@ export const Users: IUser[] = [
         email: "ilich@abv.bg",
         coverPic: "https://media.wired.com/photos/5ca648a330f00e47fd82ae77/master/pass/Culture_Matrix_Code_corridor.jpg",
         profilePic: "https://avatars.githubusercontent.com/u/121745595?v=4",
-        connections: [],
+        connections: [{
+            id: "2",
+            firstName: "Mark",
+            lastName: "Zuckerberg",
+            profilePic: "https://hips.hearstapps.com/hmg-prod/images/of-facebook-mark-zuckerberg-walks-to-lunch-following-a-news-photo-1683662107.jpg?crop=1xw:0.53687xh;center,top&resize=1200:*",
+        },
+        {
+            id: "3",
+            firstName: "Brendan",
+            lastName: "Eich",
+            profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/220px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg",
+        }],
         posts: ["fdhgf664"]
     },
 ]
@@ -89,7 +140,6 @@ export const Posts: IPost[] = [
         comments: []
     },
 ]
-
 
 export const Likes: ILike[] = [
     {
