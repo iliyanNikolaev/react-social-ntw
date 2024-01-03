@@ -10,20 +10,21 @@ import { Link } from 'react-router-dom';
 import { LikesModal, toggleLikesModal } from "../Modals/LikesModal";
 import { CommentsModal, toggleCommentsModal } from '../Modals/CommentsModal';
 import { useAuthContext } from '../../contexts/AuthContext';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getPostById } from '../../data/api';
 
-type PostItemProp = { post: IPost | undefined, userData?: IUserDataLogged | IUserDataNotLogged, liked?: boolean, toggleLike?: () => void };
 
 export const PostItem = (
-    { postId }: {postId: string}
+    { postId }: { postId: string }
 ) => {
-    // todo... this component needs only id and he will fetch postData and saved in state
-    const { userData } = useAuthContext();
 
-    const [currentPost, setCurrentPost ]= useState<IPost>();
+    const [currentPost, setCurrentPost] = useState<IPost>();
+    useEffect(() => {
 
-    const [liked, setLiked] = useState<boolean>(false);
+        getPostById(postId).then(data => {
+            setCurrentPost(data);
+        });
+    }, []);
 
 
     useEffect(() => {
@@ -33,28 +34,15 @@ export const PostItem = (
         });
     }, []);
 
-    const toggleLike = () => {
-        if(liked) {
-            
-        } else {
-
-        }
-        setLiked(prev => !prev);
-    }
-
     return (
         //init modals on the page
         <div className={styles.container}>
             {currentPost && <>
-                <LikesModal id={currentPost.id} /> 
-                {/* likesModal will receive likes = string[] */}
-                <CommentsModal id={currentPost.id} />
-                {/* likesModal will receive comments = string[] */}
                 <PostUpper post={currentPost} />
 
                 <PostLower post={currentPost} />
 
-                <PostControls post={currentPost} userData={userData} liked={liked} toggleLike={toggleLike}/>
+                <PostControls post={currentPost} />
             </>}
         </div>
     )
@@ -82,20 +70,40 @@ const PostLower = (
 }
 
 const PostControls = (
-    { post, userData, liked, toggleLike }: PostItemProp
+    { post }: { post: IPost }
 ) => {
+    const { userData } = useAuthContext();
+    const [liked, setLiked] = useState<boolean>(false);
+    const likesCount = useRef(0);
+
+    const toggleLike = () => {
+        if (liked) {
+            likesCount.current = likesCount.current - 1;
+        } else {
+            likesCount.current = likesCount.current + 1;
+        }
+        setLiked(prev => !prev);
+    }
+
+    useEffect(() => {
+        likesCount.current = post.likes.length;
+    }, [post]);
+
+
     return <div className={styles.controls}>
         {userData?.isAuth ? <>
+            <LikesModal id={post.id} />
+            <CommentsModal id={post.id} />
             <div className={styles.actions}>
                 <span className={styles.likeBtn} onClick={toggleLike}>
-                    { liked ? <><BiSolidDislike className={styles.likeIcon} /> unlike</> : <><BiSolidLike className={styles.likeIcon} /> like</>}
+                    {liked ? <><BiSolidDislike className={styles.likeIcon} /> unlike</> : <><BiSolidLike className={styles.likeIcon} /> like</>}
                 </span>
             </div>
         </> : null}
 
         <div className={styles.details}>
             {post && <>
-                <span onClick={() => toggleLikesModal(post.id)} className={styles.viewLikesBtn}>{post.likes.length} likes</span>
+                <span onClick={() => toggleLikesModal(post.id)} className={styles.viewLikesBtn}>{likesCount.current} likes</span>
                 <span onClick={() => toggleCommentsModal(post.id)} className={styles.viewCommentsBtn}>{post.comments.length} comments</span>
             </>}
         </div>
