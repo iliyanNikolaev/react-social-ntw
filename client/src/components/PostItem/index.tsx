@@ -4,7 +4,6 @@ import { BiSolidLike } from "react-icons/bi";
 import { BiSolidDislike } from "react-icons/bi";
 // interfaces
 import { IPost } from '../../interfaces';
-import { IUserDataLogged, IUserDataNotLogged } from '../../interfaces';
 // components and utils
 import { Link } from 'react-router-dom';
 import { LikesModal, toggleLikesModal } from "../Modals/LikesModal";
@@ -19,6 +18,7 @@ export const PostItem = (
 ) => {
 
     const [currentPost, setCurrentPost] = useState<IPost>();
+    
     useEffect(() => {
 
         getPostById(postId).then(data => {
@@ -26,16 +26,8 @@ export const PostItem = (
         });
     }, []);
 
-
-    useEffect(() => {
-
-        getPostById(postId).then(data => {
-            setCurrentPost(data);
-        });
-    }, []);
 
     return (
-        //init modals on the page
         <div className={styles.container}>
             {currentPost && <>
                 <PostUpper post={currentPost} />
@@ -92,7 +84,7 @@ const PostControls = (
 
     return <div className={styles.controls}>
         {userData?.isAuth ? <>
-            <LikesModal id={post.id} />
+            <LikesModal id={post.id} liked={liked}/>
             <CommentsModal id={post.id} />
             <div className={styles.actions}>
                 <span className={styles.likeBtn} onClick={toggleLike}>

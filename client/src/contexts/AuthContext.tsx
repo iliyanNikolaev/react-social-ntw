@@ -39,13 +39,13 @@ export const AuthContextProvider = ({ children }: { children: ReactElement | Rea
 
     const loginHandler = (data: { email: string, password: string }) => {
         console.log(data);
-        sessionStorage.setItem('tempAuth', JSON.stringify({ isAuth: true }));
+        sessionStorage.setItem('tempAuth', JSON.stringify(mockUserData));
         setUserData(mockUserData);
     }
 
     const registerHandler = (data: { email: string, password: string }) => {
         console.log(data);
-        sessionStorage.setItem('tempAuth', JSON.stringify({ isAuth: true }));
+        sessionStorage.setItem('tempAuth', JSON.stringify(mockUserData));
         setUserData(mockUserData);
     }
 

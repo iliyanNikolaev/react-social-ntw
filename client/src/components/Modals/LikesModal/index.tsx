@@ -13,16 +13,17 @@ export const toggleLikesModal = (id: string) => {
 }
 
 export const LikesModal = (
-	{ id }:
-		{ id: string }
+	{ id, liked }:
+		{ id: string, liked: boolean }
 ) => {
 	const [currentLikes, setCurrentLikes] = useState<ILike[]>();
 
 	useEffect(() => {
 		getLikesForPost(id).then(data => {
 			setCurrentLikes(data);
+			console.log('fetching likes'+id);
 		});
-	}, []);
+	}, [id, liked]);
 
 	return (
 		<Modal label={"likes-modal" + id}>
