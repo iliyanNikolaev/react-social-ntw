@@ -66,7 +66,7 @@ const PostControls = (
 ) => {
     const { userData } = useAuthContext();
     const [liked, setLiked] = useState<boolean>(false);
-    const likesCount = useRef(0);
+    const likesCount = useRef(post.likes.length);
 
     const toggleLike = () => {
         if (liked) {
