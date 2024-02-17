@@ -2,36 +2,26 @@
 import styles from './comments-modal.module.css';
 import { FaCommentDots } from "react-icons/fa";
 //interfaces
-import { IComment } from '../../../interfaces';
 //components and utils
 import { Modal, toggleModal } from "../../Modal"
-import { useEffect, useState } from 'react';
-import { getCommentsForPost } from '../../../data/api';
 
 
 export const toggleCommentsModal = (id: string) => {
 	toggleModal('comments-modal'+id);
 }
 
-
 export const CommentsModal = (
-	{ id }: { id: string }
+	{ id }:
+	{ id: string }
 ) => {
-	const [currentComments, setCurrentCommens] = useState<IComment[]>();
-
-	useEffect(() => {
-		getCommentsForPost(id).then(data => {
-			setCurrentCommens(data);
-		});
-	}, [])
 
 	return (
 		<Modal label={"comments-modal"+id}>
 
 			<div className={styles.container}>
-				{!currentComments && <p>No comments yet..</p>}
+				{false && <p>No comments yet..</p>}
 
-				<CommentsList comments={currentComments} />
+				<CommentsList />
 
 				<AddCommentForm />
 			</div>
@@ -40,27 +30,22 @@ export const CommentsModal = (
 	)
 }
 
-const CommentsList = (
-	{ comments }: {comments: IComment[] | undefined}
-) => {
+const CommentsList = () => {
 	return <div className={styles.commentList}>
-		{comments?.length == 0 && <p>No comments yet...</p>}
-		{comments?.map(x =>
-			<Comment key={x.id} comment={x} />
-		)}
+		<Comment />
+		<Comment />
+		<Comment />
+		<Comment />
+		<p>No comments yet...</p>
 	</div>
 }
 
-type CommentProp = { comment: IComment };
-
-const Comment = (
-	{ comment }: CommentProp
-) => {
+const Comment = () => {
 	return <div className={styles.comment}>
-		<img className={styles.avatar} src={comment.owner.profilePic} alt="avatar" />
+		<img className={styles.avatar} src="/user.png" alt="avatar" />
 		<div className={styles.commentContent}>
-			<span className={styles.author}>{comment.owner.firstName} {comment.owner.lastName}</span>
-			<span className={styles.textContent}>{comment.textContent}</span>
+			<span className={styles.author}>John Doe</span>
+			<span className={styles.textContent}>Hardcoded comment</span>
 		</div>
 	</div>
 }

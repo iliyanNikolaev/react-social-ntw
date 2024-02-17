@@ -1,57 +1,44 @@
 import { ReactElement, createContext, useContext, useState } from "react";
-import { IUserDataLogged, IUserDataNotLogged } from "../interfaces";
+
+type UserDataType = {
+    isAuth: boolean
+}
 
 type AuthContextProps = {
     loginHandler: (data: { email: string, password: string }) => void,
     registerHandler: (data: { email: string, password: string }) => void,
     logoutHandler: () => void,
-    userData: IUserDataLogged | IUserDataNotLogged
-}
-
-const userDataInit = { isAuth: false };
-const mockUserData = {
-    isAuth: true,
-    id: '4',
-    firstName: 'Iliyan',
-    lastName: 'Nikolaev',
-    coverPic: 'https://media.wired.com/photos/5ca648a330f00e47fd82ae77/master/pass/Culture_Matrix_Code_corridor.jpg',
-    profilePic: 'https://avatars.githubusercontent.com/u/121745595?v=4'
+    userData: UserDataType
 }
 
 const AuthContextPropsInit = {
     loginHandler: (data: { email: string, password: string }) => { console.log(data) },
     registerHandler: (data: { email: string, password: string }) => { console.log(data) },
     logoutHandler: () => { },
-    userData: userDataInit
+    userData: { isAuth: false }
 }
 
 const AuthContext = createContext<AuthContextProps>(AuthContextPropsInit);
 
 export const AuthContextProvider = ({ children }: { children: ReactElement | ReactElement[] }) => {
 
-    const [userData, setUserData] = useState<IUserDataLogged | IUserDataNotLogged>(() => {
-        const userData = sessionStorage.getItem('tempAuth');
-        if (userData) {
-            return JSON.parse(userData);
-        }
-        return userDataInit;
-    })
+    const [userData, setUserData] = useState<UserDataType>({isAuth: false});
 
     const loginHandler = (data: { email: string, password: string }) => {
         console.log(data);
-        sessionStorage.setItem('tempAuth', JSON.stringify(mockUserData));
-        setUserData(mockUserData);
+        sessionStorage.setItem('tempAuth', JSON.stringify({ isAuth: true }));
+        setUserData({ isAuth: true });
     }
 
     const registerHandler = (data: { email: string, password: string }) => {
         console.log(data);
-        sessionStorage.setItem('tempAuth', JSON.stringify(mockUserData));
-        setUserData(mockUserData);
+        sessionStorage.setItem('tempAuth', JSON.stringify({ isAuth: true }));
+        setUserData({ isAuth: true });
     }
 
     const logoutHandler = () => {
         sessionStorage.removeItem('tempAuth');
-        setUserData({isAuth: false});
+        setUserData({ isAuth: false });
     }
 
     const ctx = {

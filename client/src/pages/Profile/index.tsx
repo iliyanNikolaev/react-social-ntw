@@ -3,26 +3,18 @@ import styles from './profile.module.css';
 import { SlUserFollow } from "react-icons/sl";
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb';
 import { FaUserEdit } from "react-icons/fa";
-//interfaces
-import { IUser, IUserDataLogged, IUserDataNotLogged } from '../../interfaces';
 //hooks
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAuthContext } from '../../contexts/AuthContext';
-//services
-import { getPostsForUser, getUser } from '../../data/api';
 //components
 import { PostList } from '../../components/PostList';
 import { ConnectionsModal, toggleConnectionsModal } from '../../components/Modals/ConnectionsModal';
 import { EditProfileModal, toggleEditProfileModal } from '../../components/Modals/EditProfileModal';
 import { ScrollToTop } from '../../components/ScrollToTop';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 
 export const Profile = () => {
-
     const { id } = useParams();
-    const { currentUser, userPostsIDs } = useProfile(id);
-    const { userData } = useAuthContext();
 
     return (
         //scroll to top when component pre-render, init modals on the page
@@ -31,60 +23,34 @@ export const Profile = () => {
 
             {id && <ConnectionsModal userId={id} />}
 
-            <EditProfileModal currentUser={currentUser}/>
+            <EditProfileModal />
 
             <div className={styles.container}>
 
-                {!currentUser && <p>Loading...</p>}
+                {false && <p>Loading...</p>}
 
-                {currentUser && <>
-                    <ProfileUpper currentUser={currentUser} />
+                    <ProfileUpper  />
 
-                    <ProfileLower currentUser={currentUser} userData={userData} />
+                    <ProfileLower  />
 
-                    {userPostsIDs && <ProfilePostList currentPosts={userPostsIDs} />}
+                    <ProfilePostList />
 
                     <ProfilePaginationControls />
-                </>}
             </div>
         </div>
     )
 }
 
-const useProfile = (id: string | undefined) => {
-    const [currentUser, setCurrentUser] = useState<IUser>();
-    const [userPostsIDs, setUserPostsIDs] = useState<string[]>();
-    
-    useEffect(() => {
-        if(id) {
-            getUser(id).then(data => {
-                setCurrentUser(data);
-            });
-        }
-    }, [id]);
 
-    useEffect(() =>{
-        if(id) {
-            getPostsForUser(id).then(data => {
-                setUserPostsIDs(data);
-            })
-        }
-    }, [id]);
-    return { currentUser, userPostsIDs };
-}
-
-const ProfileUpper = (
-    { currentUser }:
-        { currentUser: IUser}
-) => {
+const ProfileUpper = () => {
     return <div className={styles.upper}>
 
         <EditProfileIcon />
         
-        <img className={styles.cover} src={currentUser.coverPic} alt="cover" />
-        <img className={styles.avatar} src={currentUser.profilePic} alt="avatar" />
+        <img className={styles.cover} src="/cover.jpg" alt="cover" />
+        <img className={styles.avatar} src="/ilich.jpg" alt="avatar" />
 
-        <span className={styles.fullName}>{currentUser.firstName} {currentUser.lastName}</span>
+        <span className={styles.fullName}>John Doe</span>
     </div>
 }
 
@@ -94,17 +60,16 @@ const EditProfileIcon = () => {
     </div>
 }
 
-const ProfileLower = (
-    { currentUser, userData }:
-        { currentUser: IUser, userData: IUserDataLogged | IUserDataNotLogged }
-) => {
+const ProfileLower = () => {
+    const { userData } = useAuthContext();
+
     return <div className={styles.lower}>
         <div className={styles.controls}>
             <span
                 onClick={toggleConnectionsModal}
                 className={styles.connectionsBtn}
             >
-                {currentUser.connections.length} followers
+                12 followers
             </span>
             {userData.isAuth && <button className={styles.btn}><SlUserFollow /> follow</button>}
 
@@ -112,11 +77,9 @@ const ProfileLower = (
     </div>
 }
 
-const ProfilePostList = (
-    { currentPosts }
-        : { currentPosts: string[] }) => {
+const ProfilePostList = () => {
     return <div className={styles.posts}>
-        <PostList postsIDs={currentPosts} />
+        <PostList  />
     </div>
 }
 

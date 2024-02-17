@@ -9,7 +9,6 @@ import { MdLogout } from "react-icons/md";
 import { useAuthContext } from '../../contexts/AuthContext';
 // components and utils
 import { Link } from 'react-router-dom';
-import { IUserData } from '../../interfaces';
 
 export const Navbar = () => {
     const { userData, logoutHandler } = useAuthContext();
@@ -36,11 +35,11 @@ const Logo = () => {
     </div>
 }
 
-const NavLinks = ({ userData, onLogout }: { userData: IUserData, onLogout: () => void }) => {
+const NavLinks = ({ userData, onLogout }: { userData: { isAuth: boolean }, onLogout: () => void }) => {
     return <div className={styles.icons}>
         <Link to='/'><FaHome className={styles.homeIcon} /></Link>
         <Link to='/users'><FaUsers className={styles.usersIcon} /></Link>
-        {userData.isAuth ? <Link to={`/profile/${userData.id}`}><CgProfile className={styles.profileIcon} /></Link> : null}
+        {userData.isAuth ? <Link to={`/profile/hardcodedID`}><CgProfile className={styles.profileIcon} /></Link> : null}
         {userData.isAuth ? <Link to='#'><MdLogout onClick={onLogout} className={styles.logoutIcon} /></Link> : null}
     </div>;
 }
