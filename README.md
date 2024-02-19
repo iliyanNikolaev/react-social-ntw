@@ -5,7 +5,7 @@ The project is a social network built using the following technologies:
 
 - **Client-Side (Frontend):** Implemented with a combination of React, TypeScript, and Vite. The interface is under development, and the basic layout has been completed.
 
-- **Server-Side (Backend):** Constructed using Node.js and Express. MongoDB is utilized for database management, and Mongoose is employed for defining models.
+- **Server-Side (Backend):** Constructed using Firebase for backend services.
 
 ## Development Status
 
@@ -19,10 +19,7 @@ The current state of the project involves the completion of the primary static l
   - Vite
 
 - **Backend:**
-  - Node.js
-  - Express
-  - MongoDB
-  - Mongoose
+  - Firebase - Authentication, Firestore Database
 
 ## Screenshots
 
@@ -37,6 +34,4 @@ Below are screenshots of the completed user interface:
 
 The next steps in development include:
 
-- Implementing dynamic functionality on the frontend.
-- Developing the server-side logic and endpoints.
-- Integrating MongoDB with Mongoose for data storage and retrieval.
+- Implementing dynamic functionality.
