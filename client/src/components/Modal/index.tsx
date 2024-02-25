@@ -28,7 +28,7 @@ export const Modal = (
     { children, label }: ModalProps
 ) => {
     return (
-        <dialog className={styles.container} id={label} aria-labelledby="dialog_title" aria-describedby="dialog_description">
+        <dialog className={styles.container} id={label}>
 
             <FaWindowClose className={styles.closeBtn} onClick={() => toggleModal(label)} />
 

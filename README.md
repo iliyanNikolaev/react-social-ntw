@@ -2,7 +2,7 @@
 
 ## Demo
 
-For a live demonstration, please visit [Demo Link](https://monumental-buttercream-8d8d39.netlify.app/).
+For a live demonstration, please visit [Demo Link](https://storied-crepe-79ea5e.netlify.app/).
 
 ## Project Description
 

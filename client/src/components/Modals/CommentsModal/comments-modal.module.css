@@ -90,3 +90,13 @@
     font-size: medium;
     cursor: pointer;
 }
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        height: 90%;
+    }
+    .input {
+        width: 90%;
+    }
+    
+}

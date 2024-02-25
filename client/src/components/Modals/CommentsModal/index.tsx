@@ -43,7 +43,7 @@ const CommentsList = ({
 	comments: string[]
 }) => {
 	return <div className={styles.commentList}>
-		{comments.map(() => <Comment />)}
+		{comments.map(() => <Comment key={Math.random()}/>)}
 		<p>No comments yet...</p>
 	</div>
 }
