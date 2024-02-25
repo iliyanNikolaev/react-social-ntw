@@ -14,7 +14,7 @@ The server-side (backend) is planned to be constructed using **Firebase** for ba
 
 Below are screenshots of the current state of the user interface:
 
-![home](readmeAssets/home.JPG)
+![home](readmeAssets/home.jpg)
 ![login](readmeAssets/login.JPG)
 ![profile](readmeAssets/profile.JPG)
 
