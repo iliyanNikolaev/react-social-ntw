@@ -5,7 +5,6 @@ import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { MdOutlineLogin } from "react-icons/md";
 //interfaces
 //hooks
-import { useAuthContext } from '../../contexts/AuthContext';
 //components
 import { CreatePost } from '../../components/CreatePost';
 import { PostList } from "../../components/PostList";
@@ -14,13 +13,13 @@ import { Link } from 'react-router-dom';
 
 export const Home = () => {
 
-  const { userData } = useAuthContext();
 
   return (
     <div className={styles.wrapper}>
 
       <div className={styles.container}>
-        {userData.isAuth ? <CreatePost /> : <HomeUpperNotLogged />}
+        <HomeUpperNotLogged />
+        <CreatePost />
 
         {<PostList />}
 

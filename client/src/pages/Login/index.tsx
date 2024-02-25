@@ -3,7 +3,6 @@ import styles from './login.module.css';
 import { MdAlternateEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 //hooks
-import { useAuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 // utils and other
 import { Link } from 'react-router-dom';
@@ -29,12 +28,9 @@ export const Login = () => {
 const LoginForm = () => {
 	const navigate = useNavigate();
 
-	const { registerHandler } = useAuthContext();
 
 	const onSubmit = (e: FormEvent) => {
 		e.preventDefault();
-
-		registerHandler({ email: 'test@test.test', password: '123' });
 
 		navigate('/');
 	}
@@ -51,7 +47,7 @@ const LoginForm = () => {
 			<input className={styles.input} type="password" placeholder='password' defaultValue="123"/>
 		</div>
 
-		<button className={styles.btn}>Click for login!!</button>
+		<button className={styles.btn}>login</button>
 	</form>
 }
 

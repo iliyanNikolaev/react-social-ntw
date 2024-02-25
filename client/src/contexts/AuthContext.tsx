@@ -15,14 +15,14 @@ const AuthContextPropsInit = {
     loginHandler: (data: { email: string, password: string }) => { console.log(data) },
     registerHandler: (data: { email: string, password: string }) => { console.log(data) },
     logoutHandler: () => { },
-    userData: { isAuth: false }
+    userData: { isAuth: true }
 }
 
 const AuthContext = createContext<AuthContextProps>(AuthContextPropsInit);
 
 export const AuthContextProvider = ({ children }: { children: ReactElement | ReactElement[] }) => {
 
-    const [userData, setUserData] = useState<UserDataType>({isAuth: false});
+    const [userData, setUserData] = useState<UserDataType>({isAuth: true});
 
     const loginHandler = (data: { email: string, password: string }) => {
         console.log(data);
@@ -37,8 +37,8 @@ export const AuthContextProvider = ({ children }: { children: ReactElement | Rea
     }
 
     const logoutHandler = () => {
-        sessionStorage.removeItem('tempAuth');
-        setUserData({ isAuth: false });
+        sessionStorage.setItem('tempAuth', JSON.stringify({ isAuth: true }));
+        setUserData({ isAuth: true });
     }
 
     const ctx = {

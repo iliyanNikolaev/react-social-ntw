@@ -3,6 +3,7 @@ import { Modal, toggleModal } from '../../Modal';
 import styles from './likes-modal.module.css';
 
 export const toggleLikesModal = (id: string) => {
+	console.log('toggle-likes-modal'+id);
 	toggleModal('likes-modal'+id);
 }
 

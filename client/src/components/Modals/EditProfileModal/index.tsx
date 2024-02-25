@@ -6,6 +6,7 @@ import { Modal, toggleModal } from '../../Modal';
 
 
 export const toggleEditProfileModal = () => {
+    console.log('toggle-edit-profile-modal');
     toggleModal('edit-profile-modal');
 }
 

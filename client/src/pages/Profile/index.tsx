@@ -14,10 +14,8 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 
 export const Profile = () => {
+    
     let { id } = useParams();
-    if(typeof id == undefined) {
-        id = String(Math.random());
-    }
     
     return (
         //scroll to top when component pre-render, init modals on the page
