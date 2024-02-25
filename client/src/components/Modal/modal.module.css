@@ -13,7 +13,8 @@
 
 .closeBtn{
     font-size: 2rem;
-    color: rgba(205, 28, 28, 0.946)
+    color: rgba(205, 28, 28, 0.946);
+    position: absolute;
 }
 
 .closeBtn:hover{
@@ -32,5 +33,6 @@
     .container {
         width: 50%;
         height: 50%;
+        overflow-x: hidden;
     }
 }

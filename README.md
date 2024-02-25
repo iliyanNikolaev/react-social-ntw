@@ -2,7 +2,7 @@
 
 ## Demo
 
-For a live demonstration, please visit [Demo Link](https://storied-crepe-79ea5e.netlify.app/).
+For a live demonstration, please visit [Demo Link](https://visionary-mousse-72e416.netlify.app).
 
 ## Project Description
 
