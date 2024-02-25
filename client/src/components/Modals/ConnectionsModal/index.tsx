@@ -8,8 +8,8 @@ export const toggleConnectionsModal = () => {
 	toggleModal('connections-modal');
 }
 
-export const ConnectionsModal = () => {
-
+export const ConnectionsModal = ({ userId }: { userId: string}) => {
+	console.log(userId);
 	return (
 		<Modal label="connections-modal">
 

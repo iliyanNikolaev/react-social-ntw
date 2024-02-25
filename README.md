@@ -1,37 +1,26 @@
 # react-social-ntw
+
+## Demo
+
+For a live demonstration, please visit [Demo Link](https://moonlit-creponne-d409d5.netlify.app/).
+
 ## Project Description
 
-The project is a social network built using the following technologies:
+This project serves as a demonstration of a responsive design implemented using a combination of **React**, **TypeScript**, and **Vite** for the client-side (frontend). Notably, the responsive layout is achieved through the use of **pure CSS**. The interface is currently in the early stages of development, with a focus on achieving a basic layout.
 
-- **Client-Side (Frontend):** Implemented with a combination of React, TypeScript, and Vite. The interface is under development, and the basic layout has been completed.
-
-- **Server-Side (Backend):** Constructed using Firebase for backend services.
-
-## Development Status
-
-The current state of the project involves the completion of the primary static layout. The server implementation is yet to be developed.
-
-## Technologies Used
-
-- **Frontend:**
-  - React
-  - TypeScript
-  - Vite
-
-- **Backend:**
-  - Firebase - Authentication, Firestore Database
+The server-side (backend) is planned to be constructed using **Firebase** for backend services. However, as of now, the server implementation is pending.
 
 ## Screenshots
 
-Below are screenshots of the completed user interface:
+Below are screenshots of the current state of the user interface:
 
 ![home](readmeAssets/homeNotLogged.JPG)
 ![login](readmeAssets/login.JPG)
 ![home](readmeAssets/homeLogged.JPG)
 ![profile](readmeAssets/profile.JPG)
 
-## Future Development
+## Note
 
-The next steps in development include:
+This application is a demo with non-functional React components containing hardcoded data. The primary purpose is to showcase a responsive design built using **CSS**. Future development plans include implementing dynamic functionality.
 
-- Implementing dynamic functionality.
+Feel free to explore the demo and provide feedback on the design and layout.

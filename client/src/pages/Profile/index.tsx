@@ -14,14 +14,17 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 
 export const Profile = () => {
-    const { id } = useParams();
-
+    let { id } = useParams();
+    if(typeof id == undefined) {
+        id = String(Math.random());
+    }
+    
     return (
         //scroll to top when component pre-render, init modals on the page
         <div className={styles.wrapper}>
             <ScrollToTop />
 
-            {id && <ConnectionsModal userId={id} />}
+            {typeof id == 'string' && <ConnectionsModal userId={id} />}
 
             <EditProfileModal />
 

@@ -43,15 +43,15 @@ const LoginForm = () => {
 
 		<div className={styles.inputContainer}>
 			<MdAlternateEmail className={styles.icon} />
-			<input className={styles.input} type="email" placeholder='email' />
+			<input className={styles.input} type="email" placeholder='email' defaultValue="test@test.com"/>
 		</div>
 
 		<div className={styles.inputContainer}>
 			<RiLockPasswordLine className={styles.icon} />
-			<input className={styles.input} type="password" placeholder='password' />
+			<input className={styles.input} type="password" placeholder='password' defaultValue="123"/>
 		</div>
 
-		<button className={styles.btn}>login</button>
+		<button className={styles.btn}>Click for login!!</button>
 	</form>
 }
 
