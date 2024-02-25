@@ -1,31 +1,15 @@
-.container::backdrop{
-    background-color: rgba(0, 0, 0, 0.95);
-}
-
 .container {
-    padding: 9px 12px;
+    /* padding: 9px 12px;
     border: none;
     outline: none;
     background: #5f6c88;
     border-radius: 2rem;
-    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.37);
-}
-
-.closeBtn{
-    font-size: 2rem;
-    color: rgba(205, 28, 28, 0.946)
-}
-
-.closeBtn:hover{
-    cursor: pointer;
-    scale: 1.1;
-}
-
-.contentWrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.37); */
+    border: none !important;
+    border-radius: calc(5px * var(--ratio));
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 1.6rem;
+    max-width: 400px;
 }
 
 @media (max-width: 600px) {
@@ -37,4 +21,25 @@
     .closeBtn {
         font-size: 1.5rem;
     }
+}
+
+.closeBtn {
+    font-size: 2rem;
+    color: rgba(205, 28, 28, 0.946);
+}
+
+.closeBtn:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.container::backdrop {
+    background-color: rgba(0, 0, 0, 0.95);
 }

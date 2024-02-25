@@ -11,12 +11,10 @@ export function toggleModal(id: string) {
 
     const close = () => {
         modal.close();
-        document.body.style.overflow = 'auto'
     }
 
     const open = () => {
         modal.showModal();
-        document.body.style.overflow = 'hidden';
     }
 
     if (modal) {
@@ -30,7 +28,7 @@ export const Modal = (
     { children, label }: ModalProps
 ) => {
     return (
-        <dialog className={styles.container} id={label}>
+        <dialog className={styles.container} id={label} aria-labelledby="dialog_title" aria-describedby="dialog_description">
 
             <FaWindowClose className={styles.closeBtn} onClick={() => toggleModal(label)} />
 

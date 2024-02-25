@@ -2,7 +2,7 @@
 
 ## Demo
 
-For a live demonstration, please visit [Demo Link](https://gentle-chebakia-7d54e5.netlify.app/).
+For a live demonstration, please visit [Demo Link](https://monumental-buttercream-8d8d39.netlify.app/).
 
 ## Project Description
 
